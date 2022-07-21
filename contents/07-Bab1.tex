@@ -1,0 +1,46 @@
+%\vspace{1.5pc}
+\vspace{1.5pc}
+\section[Latar Belakang dan Rumusan Masalah]{Latar Belakang dan Rumusan Masalah}
+\begin{spacing}{1.5}
+	Lautan memiliki permukaan dan volume dalam skala besar yang memungkinkan banyak fenomena terjadi di dalam dan sekitarnya. Penelitian-penelitian yang dilakukan beberapa dekade belakangan ini menunjukkan bahwa lingkungan laut sedang mengalami ancaman besar sampah plastik yang disebabkan oleh faktor ekonomi lingkungan (\textit{environmental economics}). Berdasarkan penelitian \citeNP{BarraRicardoandLeonard2018}, produksi plastik dunia meningkat lebih dari 20 kali lipat antara tahun 1964 dan 2015 sebanyak 322 juta metrik ton per tahun, dan diprediksi akan berlipat ganda pada tahun 2035 dan menjadi 4 kali lipat pada tahun 2050. \par 
+	Berbanding lurus dengan jumlah produksi plastik dunia, sampah plastik khususnya sampah plastik di lautan tiap tahun juga kian meningkat. Sampah plastik ini dapat dibedakan menjadi makroplastik (ukuran diameter $\geq 0.5$cm) dan mikroplastik (ukuran diameter $<0.5$cm). Data tahun 1950-2015 \shortcite{owidplasticpollution,Lebreton2018} pada gambar \ref{fig:plasticdata} di bawah, menunjukkan bahwa akumulasi sampah di laut yang terdampar di garis pantai sebesar $122$ juta ton ($98.6\%$), daerah pesisir (kedalaman $\leq 200$m) sebesar $0.23$ juta ton ($0.18\%$), dan daerah lepas pantai (kedalaman $\geq 200$m) sebesar $1.5$ juta ton ($1.2\%$). Dari data yang ada, tampak bahwa $2/3$ dari sampah makroplastik terapung yang dilepas ke laut sejak tahun 1950 kembali ke pesisir pantai sehingga memunculkan akumulasi sampah plastik baik yang terkubur ataupun terdampar di pesisir pantai. Di daerah dangkal khususnya, $79\%$ sampah makroplastik ditemukan berusia kurang dari 5 tahun. Sebagai tambahan, kondisi sampah makroplastik di lepas pantai membutuhkan waktu yang lebih lama untuk terakumulasi dan tercatat bahwa terdapat $35\%$ sampah makroplastik yang berusia diatas 15 tahun dan $26\%$ yang berusia $<5$ tahun.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=15cm]{contents/Where-does-plastic-accumulate.png}
+		\caption{Distribusi sampah plastik di laut \protect\shortcite{owidplasticpollution}}
+		\label{fig:plasticdata}
+	\end{figure}
+
+%	Fenomena yang seringkali dibahas seperti hubungan antara sirkulasi arus laut dan perubahan iklim \shortcite{DelaVara2022,Du2019,Timmermans2020}, dinamika laut di bawah lapisan es \shortcite{Shen2019,Zhang2020,Zhao2021}, pembahasan tentang bagaimana rantai energi yang terus berputar di dalam lautan \shortcite{Eden2016,Klower2018,Liu2020}, bahkan mengenai bencana alam tsunami \shortcite{Kubota2020,Paris2018,Wolper2021}. Beberapa fenomena tersebut memiliki kajian yang luas, sehingga pemodelan laut makin pesat perkembangannya untuk mengimbangi kebutuhan penelitian. \par
+	
+	Studi tentang pemodelan laut berkaitan dengan pembentukan model dan sifat-sifat sistem didalamnya. Dalam praktiknya, pembentukan model ini memanfaatkan model numerik dan program komputasi dengan tujuan untuk mengatasi keterbatasan data observasi, juga untuk alasan efektifitas serta efisiensi biaya dan waktu yang digunakan. Penelitian terdahulu mengembangkan model numerik dengan menggunakan persamaan Navier-Stokes 2 dimensi dan 3 dimensi untuk menganalisis variabel hidrodinamika laut dan disebut juga sebagai model sirkulasi laut atau \textit{Ocean General Circulation Models} (OGCM). Beberapa model OGCM yang sering digunakan adalah \textit{HYbrid Coordinate Ocean Model} (HYCOM), \textit{Nucleus for European Modelling of the Ocean} (NEMO) dan \textit{HAMburg Shelf Ocean Model} (HAMSOM) yang dapat dibedakan oleh grid dan koordinat pada bidang horizontal dan vertikal. Studi dari \shortcite{Rizal2018,Ikhwan2019,Haditiar2019,Rizal2010,Haditiar2020,Ikhwan2021} misalnya, menggunakan model HAMSOM untuk mensimulasikan arus laut di perairan indonesia dengan pendekatan hidrostatik dan nonhidrostatik akibat gaya pembangkit angin dan juga mengkaji tentang sirkulasi arus pasang surut baroklinik M2 dan hidrodinamika laut yang berasal dari fenomena El Nino. \par
+	
+	Output dari model OGCM dapat digunakan untuk melacak sampah plastik di atas permukaan laut (\textit{surface}) \shortcite{Reijnders2022,Iskandar2021,Everaert2020} ataupun yang ada dibawah permukaan laut (\textit{subsurface})\shortcite{Courtene-Jones2021,Daher2020,Orfila2021} yaitu dengan menggunakan Ocean\textbf{Parcels}, salah satu alat untuk menganalisis lautan Lagrangian yang didesain untuk dapat mengkombinasikan: fleksibilitas pemodelan partikel dari alam dan implementasi komputasi modern secara efisien \shortcite{Delandmeter2019}. Pergerakan sampah plastik dipengaruhi oleh arus Ekman akibat gaya angin dan sirkulasi geostropik \shortcite{Law2010}. Plastik yang mengapung di laut ditransportasikan oleh arus dan angin, kemudian tenggelam atau akan bergerak menuju bibir pantai lalu dipecah menjadi ukuran-ukuran kecil akibat radiasi sinar UV, salinitas, variasi temperature, gelombang air, atau biota laut \shortcite{Kako2014,Jahnke2017}. Meskipun demikian, sebagian besar dari plastik ini cenderung akan diangkut ke lepas pantai dan memasuki pusaran laut yang disebut juga sebagai tambalan sampah (\textit{garbage patches}) \shortcite{Lebreton2018}.
+	
+	
+%	Model Navier-Stokes dapat dimodifikasi dalam bentuk tiga dimensi sebagai syarat dapat digunakan pada dimensi ruang \shortcite{Bessaih2018}. Penerapan model tiga dimensi telah digunakan untuk menyelesaikan permasalahan arus laut dan telah dijamin sifat eksis dan tunggal dari solusi tersebut \shortcite{Giorgini2019,Constantin2019}. Lebih lanjut,
+	
+	Penelitian tesis ini mengusulkan pelacakan sampah mikroplastik yang mengapung pada permukaan laut (\textit{surface}) di wilayah perairan Aceh sekaligus menginvestigasi model numerik analisis laut lagrangian dan hubungan gaya-gaya yang bekerja di dalamnya.  Dalam kasus ini, arus dua dimensi dari lintasan mikroplastik dipengaruhi oleh kecepatan zonal dan meridional. Lebih lanjut, diasumsikan bahwa hanya gaya angin yang mempengaruhi pergerakan dari mikroplastik.
+	
+%	\section[Rumusan Masalah]{RUMUSAN MASALAH}
+%	
+%	\lipsum[1-2]
+%	
+	\section[Tujuan Penelitian]{Tujuan Penelitian}
+	
+	Tujuan dari penelitian ini adalah menginvestigasi sebaran sampah mikroplastik yang berasal dari perairan Aceh dan melakukan kajian model numerik analisis laut lagrangian serta memperoleh hubungan antara kecepatan zonal dan meridional, dan gaya angin terhadap lintasan mikroplastik. 
+	
+	\section[Urgensi dan Kebaruan Penelitian]{Urgensi dan Kebaruan Penelitian}
+
+	Investigasi model numerik yang digunakan dalam ocean\textbf{Parcels} sangat bermanfaat untuk mengetahui cara kerja dari alat yang digunakan, utamanya karena ocean\textbf{Parcels} merupakan salah satu model pelacakan terpopuler dalam 1 dekade terakhir, sehingga dirasa penting untuk melakukan kajian terhadap model matematis dan algoritma yang digunakan, serta berfungsi untuk analisis matematis terkait penelitian lanjutan. Sehubungan dengan domain yang diteliti, pelacakan sampah plastik yang keluar dari wilayah perairan Aceh belum pernah diteliti sebelumnya oleh karena itu, penting untuk melakukan penelitian dalam domain ini dan mengetahui distribusi sampah plastik dalam kurun waktu penelitian yang dilakukan serta mengetahui hubungan-hubungan gaya yang bekerja di dalamnya.
+
+	\section[Manfaat Penelitian]{Manfaat Penelitian}
+	
+	Penelitian ini diharapkan mampu memberikan kontribusi ilmiah di bidang \textit{environmental science} dan mampu menjawab salah satu tantangan terkait sampah plastik dan cara penanggulangannya dengan mengetahui sebaran sampah plastik yang berasal dari wilayah sasaran penelitian. Penjabaran model numerik yang dilakukan akan menambah pengetahuan matematis serta dapat memperoleh gambaran tentang cara kerja model, dan potensi penelitian lanjutan.
+
+	\section[Sistematika Penulisan]{Sistematika Penulisan}
+
+	Tesis ini tersusun atas 5 bab. Bab pertama menjelaskan pendahuluan tentang latar belakang mengapa penelitian ini dilakukan, background masalah yang mendasari, tujuan penelitian, manfaat penelitian, serta kebaruan dari penelitian. Bab kedua berisikan tinjauan pustaka menyangkut ulasan singkat materi penelitian. Bab ketiga membahas tentang metode penelitian yang dilakukan, data yang yang digunakan, serta diagram alir (\textit{flowchart}) dari penelitian. Bab keempat membahas hasil dan pembahasan penelitian. Terakhir, bab kelima membahas tentang kesimpulan dari penelitian.
+	
+\end{spacing}
