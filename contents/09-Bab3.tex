@@ -28,11 +28,11 @@
 \vspace{-0.5pc}
 \section[Prosedur Penelitian]{Prosedur Penelitian}
 \begin{spacing}{1.5}
-%	\begin{figure}[H]
-%		\centering
-%		\includegraphics[width=15cm]{contents/flowchart.png}
-%		\caption{Diagram alir }
-%		\label{fig:flowchart}
-%	\end{figure}
-	Prosedur penelitian mengikuti diagram alir pada Gambar \ref{fig:flowchart}. Pertama-tama akan dilakukan konfigurasi modul yang ada dalam Python untuk menentukan input langkah waktu simulasi yang digunakan, penentuan lokasi dan  jumlah partikel yang keluar, serta konfigurasi kernel dalam hal ini perlakuan partikel, perilaku, dan lama waktu penelitian. Selanjutnya data-data OGCM yang diperlukan didownload dari situs CMEMS, HYCOM, dan NCEP. Data-data yang telah didownload kemudian diinterpolasi agar sesuai dengan software Parcel yang digunakan dan disimpan dalam data \textit{field}. Setelah kernel didefinisikan dan dikonfigurasi, data \textit{field} kemudian diproses menggunakan algoritma Parcel dan dilakukan perulangan untuk waktu yang terintegrasi, dijalankan bersama dengan modul tambahan secara paralel serta memperbaharui kondisi partikel-partikel, dan menghasilkan output berupa NetCDF atau NumPy array. Langkah terakhir adalah proses analisis dan visualisasi hasil.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{contents/flowchart.png}
+		\caption{Diagram alir penelitian}
+		\label{fig:flowchart}
+	\end{figure}
+	Prosedur penelitian mengikuti diagram alir pada Gambar \ref{fig:flowchart}. Data-data terkait penelitian didownload terlebih dahulu kemudian diinterpolasi untuk memenuhi data yang kosong serta untuk memperoleh resolusi spasial yang lebih detail. Selanjutnya data hasil interpolasi kemudian dibaca dan di konversi ke dalam data matriks pada MATLAB. Hasilnya adalah cuplik data arus, elevasi, temperature, dan data meteorologi. Cuplik data temperature kemudian diobservasi untuk menentukan kedalaman lapisan campuran selama 12 bulan. Sebagai verifikasi atas observasi kedalaman lapisan campuran, akan dilakukan analisis model iklim terhadap data meteorologi (2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind stress V) selama 20 tahun dari tahun 2002 sampai 2021.
 \end{spacing}
