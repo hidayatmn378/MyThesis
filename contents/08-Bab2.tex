@@ -3,7 +3,7 @@
 %\section[State of the Art]{State of the Art}
 \begin{spacing}{1.5}
 	
-	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan Navier-Stokes dalam pemodelan laut secara umum.
+	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan Navier-Stokes dalam pemodelan laut, termasuk didalamnya grid C Arakawa, dan diskritisasi numerik atas persamaan Navier-Stokes serta kriteria kestabilan dari model. Terakhir, akan dibahas mengenai model iklim yang digunakan.
 	
 	
 \end{spacing}
@@ -11,7 +11,7 @@
 \section[Persamaan Gerak Fluida]{Persamaan Gerak Fluida}
 \begin{spacing}{1.5}
 	
-	Persamaan matematika yang mengatur aliran viskoelastik fluida berasal dari persamaan-persamaan hukum konservasi fisika yaitu konservasi massa, momentum dan persamaan konstitutif reologi \shortcite{Alves2021}. Penjabaran dari hukum-hukum tersebut menentukan bagaimana suatu persamaan model hidrodinamika dibuat. Salah satu persamaan fluida yang paling terkenal adalah persamaan Navier-Stokes yang terdiri dari persamaan momentum, persamaan kontinuitas, dan persamaan kekekalan densitas \shortcite{Haditiar2020}. Persamaan Navier-Stokes digunakan untuk menggambarkan fluida yang mengalir dan dianggap memiliki pergerakan yang kontinu. Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas \shortcite{Rafiq2019,Das2018,Khan2019}. Sebuah partikel fluida diilustrasikan pada Gambar \ref{fig:cube}a, dan \ref{fig:cube}b. Komponen fluida seperti tekanan $p$, kecepatan $u$, dan densitas $\rho$ terletak pada pusat partikel yang bergantung terhadap waktu $(t)$ dan ruang $(x,y,z)$. Sehingga, komponen-komponen tersebut dapat ditulis dalam fungsi $p(x,y,z,t), u(x,y,z,t)$  dan $\rho(x,y,z,t)$. 
+	Persamaan matematika yang mengatur aliran viskoelastik fluida berasal dari persamaan-persamaan hukum konservasi fisika yaitu konservasi massa, momentum dan persamaan konstitutif reologi \shortcite{Alves2021}. Penjabaran dari hukum-hukum tersebut menentukan bagaimana suatu persamaan model hidrodinamika dibuat. Salah satu persamaan fluida yang paling terkenal adalah persamaan Navier-Stokes yang terdiri dari persamaan momentum, persamaan kontinuitas, dan persamaan konservasi densitas \shortcite{Haditiar2020}. Persamaan Navier-Stokes digunakan untuk menggambarkan fluida yang mengalir dan dianggap memiliki pergerakan yang kontinu. Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas \shortcite{Rafiq2019,Das2018,Khan2019}. Sebuah partikel fluida diilustrasikan pada Gambar \ref{fig:cube}a, dan \ref{fig:cube}b. Komponen fluida seperti tekanan $p$, kecepatan $u$, dan densitas $\rho$ terletak pada pusat partikel yang bergantung terhadap waktu $(t)$ dan ruang $(x,y,z)$. Sehingga, komponen-komponen tersebut dapat ditulis dalam fungsi $p(x,y,z,t), u(x,y,z,t)$  dan $\rho(x,y,z,t)$. 
 	
 	Asumsikan bahwa partikel fluida yang diobservasi sangat kecil sehingga sifat fluida pada permukaan kubus dapat diekspresikan secara akurat dengan menggunakan dua suku pertama dari ekspansi deret Taylor, 
 	\begin{equation*}
@@ -54,9 +54,9 @@
 			\frac{\partial w}{\partial t} +\text{adv}(w) &= \frac{-1}{\rho_0}\frac{\partial(q)}{\partial y}+\text{diff}(w).
 		\end{aligned}	
 	\end{equation}
-	\par Dengan $\text{adv}(\psi)=u\frac{\partial \psi}{\partial x}+v\frac{\partial \psi}{\partial y}+w\frac{\partial \psi}{\partial z}$ adalah persamaan adveksi dan $\text{diff}(\psi)=\frac{\partial}{\partial x}(A_{H} \frac{\partial \psi}{\partial x})+\frac{\partial}{\partial y}(A_{H} \frac{\partial \psi}{\partial y})+\frac{\partial}{\partial z}(A_{Z} \frac{\partial \psi}{\partial z})$ adalah persamaan difusi dengan $A_H$ dan $A_Z$ koefisien gesekan eddy horizontal dan vertikal. 
-	\par Kecepatan arus dalam sistem koordinat Cartesian 3-D didefinisikan dengan u,v, dan w. Waktu didefinisikan dengan t, parameter Coriolis dengan f, dan densitas air laut referensi dengan $\rho_0$.
-	Untuk persamaan kontinuitas atau kekekalan volume diekspresikan dalam persamaan berikut
+	\par Dengan $\text{adv}(\psi)=u\frac{\partial \psi}{\partial x}+v\frac{\partial \psi}{\partial y}+w\frac{\partial \psi}{\partial z}$ adalah persamaan adveksi dan $\text{diff}(\psi)=\frac{\partial}{\partial x}(A_{H} \frac{\partial \psi}{\partial x})+\frac{\partial}{\partial y}(A_{H} \frac{\partial \psi}{\partial y})+\frac{\partial}{\partial z}(A_{Z} \frac{\partial \psi}{\partial z})$ adalah persamaan difusi dengan $A_H$ dan $A_Z$ koefisien gesekan eddy horizontal dan vertikal. Kecepatan arus dalam sistem koordinat Cartesian 3-D didefinisikan dengan u,v, dan w. Waktu didefinisikan dengan t, parameter Coriolis dengan f, dan densitas air laut referensi dengan $\rho_0$.
+	
+	Konservasi volume diekspresikan oleh persamaan kontinuitas untuk fluida yang tak termampatkan,
 	\begin{equation}
 		\frac{\partial u}{\partial t} + \frac{\partial v}{\partial t} + \frac{\partial w}{\partial t} = 0.
 	\end{equation}
@@ -64,12 +64,103 @@
 	\begin{equation}
 		\frac{\partial q_s}{\partial t} = \rho_0 g_i \times \left( \frac{(\partial \left(H \langle u \rangle \right)} {\partial x} + \frac{(\partial \left(H \langle v \rangle \right)} {\partial y}\right)
 	\end{equation}
-	dengan $q_s = \rho_0 g \eta$. Disini $\rho_0$ adalah densitas air laut referensi, dan $\eta$ adalah elevasi permukaan laut, $H$ adalah total kedalaman laut, dan $< >$ adalah operator rata-rata vertikal.
+	dengan $q_s = \rho_0 g \eta$. Disini $\rho_0$ adalah densitas air laut referensi, dan $\eta$ adalah elevasi permukaan laut, $H$ adalah total kedalaman laut, dan $<.>$ adalah operator rata-rata vertikal.
 	\par Densitas air laut bergantung pada temperatur, salinitas, dan tekanan. Selanjutnya asumsikan bahwa air laut hanya bergantung linear terhadap temperatur dan salinitas, serta difusifitas \textit{eddy} untuk temperatur dan salinitas sama. Persamaan konservasi densitas diberikan oleh,
 	\begin{equation}
 		\frac{\partial \rho}{\partial t} + \text{adv}(\rho) = \text{diff}(\rho).
 	\end{equation}
 	Dalam aplikasinya, persamaan Navier-Stokes tidak hanya digunakan untuk memodelkan laut, tapi juga merambah ke bidang pemodelan cuaca \shortcite{Rohli2021}, aliran air dalam pipa \shortcite{Ouchiha2012} dan aliran udara di sekitar sayap pesawat \shortcite{Tulus2019}. Dalam bentuk persamaan lengkap dan simplifikasi, persamaan ini juga dapat digunakan untuk mendesain kereta api \shortcite{Croquer2020}, pesawat terbang \shortcite{Chau2021}, dan mobil \shortcite{Ambarita2018}. Terdapat juga studi tentang aliran darah \shortcite{Gill2021}, desain stasiun pembangkit listrik \shortcite{Yang2019}, dan analisis polusi udara \shortcite{Issakhov2022}. 
+
+\subsection[Diskritisasi Numerik]{Diskritisasi Numerik}
+\subsubsection[Arakawa C grid]{Arakawa C grid}
+	Diskritisasi grid di bidang horizontal dapat dibedakan menjadi grid persegi (\textit{rectiliniear}) Gambar \ref{fig:grid}a dan grid lengkung (\textit{curvlinear}) Gambar \ref{fig:grid}b, di bidang vertikal berupa grid level z (\textit{z-coordinates}) Gambar \ref{fig:grid}c dan grid level s (\textit{$\sigma$-coordinate}) Gambar \ref{fig:grid}d \shortcite{Delandmeter2019}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{contents/grid.jpg}
+		\caption{Diskritisasi grid dalam Parcels. Di bidang horizontal: (a) grid persegi, (b) grid lengkung, di bidang vertikal: (c) grid level z, (d) grid level s \protect\shortcite{Delandmeter2019}}.
+		\label{fig:grid}
+	\end{figure}
+	
+	Dalam aplikasinya, beberapa software pemodelan lau mengimplementasikan grid bertingkat (\textit{staggered grid}) yang diperkenalkan oleh \shortciteNP{ARAKAWA1977}, yaitu grid A, B dan C. Lebih lanjut, antara grid A, dan grid C terdapat perbedaan fundamental yaitu letak penyimpanan simpul variabel (lihat Gambar \ref{fig:arakawa}), sedangkan grid B dapat dianggap sebagai peralihan dari grid A ke grid C dan perbedaan tipe model grid ini menjadi penting dikarenakan peningkatan kapasitas komputasi yang stabil di banyak pusat pemodelan iklim telah mengantarkan periode transisi untuk model laut global  \shortcite{Barham2018,Delandmeter2019}. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=13cm]{contents/arakawa.jpg}
+		\caption{Grid Arakawa: (a) Grid A dan (b) Grid C \protect\shortcite{Delandmeter2019}}
+		\label{fig:arakawa}
+		\medspace
+		\small
+		Grid A adalah satu-satunya \textit{unstaggered grid} dalam grid Arakawa dimana variabel-variabelnya (\textit{zonal velocity (u), meridional velocity (v), tracers (T)}) hanya terdapat pada titik sudut grid, berbeda dengan grid C yang berada di sisi dan tengah grid. $i$ dan $j$ adalah indeks yang merepresentasikan variabel kolom dan baris dimana variabel disimpan.
+	\end{figure}
+\subsubsection[Solusi Nonhidrostatik dari Persamaan Momentum]{Solusi Nonhidrostatik dari Persamaan Momentum}
+	Dari persamaan 2.4 dan dengan aturan perkalian turunan, suku adveksi untuk parameter sembarang $B$ dapat dituliskan sebagai,
+	\begin{equation*}
+		u\frac{\partial B}{\partial x} + v\frac{\partial B}{\partial y} + w\frac{\partial B}{\partial z} = \frac{\partial (uB)}{\partial x} + \frac{\partial (vB)}{\partial y} + \frac{\partial (wB)}{\partial z} - B\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}\right).
+	\end{equation*}
+	
+	Solusi dari tekanan hidrostatik $q$ dipecah menjadi komponen eksplisit dan implisit sehingga,
+	\begin{equation*}
+		q \Rightarrow q^n + \Delta q^{n+1}
+	\end{equation*}
+	Untuk persamaan momentum 3-D, persamaan poisson untuk $\Delta q$ yang bersesuaian adalah
+	\begin{equation}\label{eq:poisson}
+		\begin{aligned}
+			a_e \Delta q_{i,j,k+1}^{n+1} + a_w \Delta q_{i,j,k-1}^{n+1} + a_n \Delta q_{i,j+1,k}^{n+1} + a_s \Delta q_{i,j-1,k}^{n+1} \; + \\
+			a_b \Delta q_{i+1,j,k}^{n+1} + 
+			a_t \Delta q_{i-1,j,k}^{n+1} -
+			a_o \Delta q_{i,j,k}^{n+1} = q_{i,j,k}^{*}
+		\end{aligned}
+	\end{equation}
+	dengan nilai-nilai koefisien,
+	\begin{equation}
+		\begin{aligned}
+			a_e &= a_w = \frac{\Delta z}{\Delta x} \\
+			a_n &= a_s = \frac{\Delta z \Delta x}{(\Delta y)^2} \\
+			a_e &= a_w = \frac{\Delta x}{\Delta z} \\
+			a_o &= a_e + a_w + a_n + a_s + a_b + a_t.
+		\end{aligned}
+	\end{equation}
+	Ruas kanan dari \ref{eq:poisson} merepresentasikan divergensi nilai tebakan pertama dari kecepatan, 
+	\begin{equation*}
+		\begin{aligned}
+		q_{i,j,k}^{*} = \frac{\rho_o}{\Delta t}\left[(u_{i,j,k}^{*}-u_{i,j,k-1}^{*})\Delta z +  (v_{i,j,k}^{*}-v_{i,j,k-1}^{*})\frac{\Delta x \Delta z}{\Delta y}+(w_{i,j,k}^{*}-w_{i,j,k-1}^{*})\Delta x\right].
+		\end{aligned}
+	\end{equation*}
+	Selanjutnya, nilai tebakan pertama dari komponen kecepatan dalam persamaan terakhir dihitung dengan cara,
+	\begin{equation}
+		\begin{aligned}
+			u_{i,j,k}^{*} &= cos(\alpha)u_{i,j,k}^{n}+sin(\alpha)v_{u}^{n} - \Delta t \text{adv}(u) + \Delta t F_{u}^{n}\\
+			v_{i,j,k}^{*} &= cos(\alpha)v_{i,j,k}^{n}+sin(\alpha)u_{v}^{n} - \Delta t \text{adv}(v) + \Delta t F_{v}^{n}\\
+			w_{i,j,k}^{*} &= w_{i,j,k}^{n} - \Delta t \text{adv}(w) + \Delta t F_{w}^{n}
+		\end{aligned}
+	\end{equation}
+	dengan $\alpha = \Delta tf, \; u_v \;\text{dan}\;v_u$ adalah nilai $u$ dan $v$ yang diinterpolasi pada titik grid $v$ dan $u$. Nilai $F_{u}^{n}, F_{v}^{n},\;\text{dan}\;F_{w}^{n}$ diberikan oleh,
+	\begin{equation}
+		\begin{aligned}
+			F_{u}^{n} &=-\frac{1}{\rho_o \Delta x}(p_{i,j,k+1}^{n}-p_{i,j,k}^{n}+q_{i,j,k+1}^{n}-q_{i,j,k}^{n})+\text{diff}(u)\\
+			F_{v}^{n} &=-\frac{1}{\rho_o \Delta y}(p_{i,j+1,k}^{n}-p_{i,j,k}^{n}+q_{i,j+1,k}^{n}-q_{i,j,k}^{n})+\text{diff}(v)\\
+			F_{w}^{n} &=-\frac{1}{\rho_o \Delta x}(q_{i-1,j,k}^{n}-q_{i,j,k}^{n})+\text{diff}(w)
+		\end{aligned}
+	\end{equation}
+	dengan diff($u$), diff($v$), dan diff($w$) menunjukkan momentum difusi. Setelah iterasi \textit{Successive Over-Relaxation}(SOR) telah terkumpul untuk akurasi tekanan yang ditentukan, nilai-nilai komponen kecepatan pada tingkat waktu berikutnya $(n+1)$ diberikan oleh,
+	\begin{equation}
+		\begin{aligned}
+			u_{i,j,k}^{n+1} &= u_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k+1}^{r} - \Delta q_{i,j,k}^{r})\\
+			v_{i,j,k}^{n+1} &= v_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta y}(\Delta q_{i,j+1,k}^{r} - \Delta q_{i,j,k}^{r})\\
+			w_{i,j,k}^{n+1} &= w_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta z}(\Delta q_{i-1,j,k+1}^{r} - \Delta q_{i,j,k}^{r})\\
+		\end{aligned}
+	\end{equation}
+\subsection[Kriteria Kestabilan]{Kriteria Kestabilan}
+	Kriteria stabilitas CFL (Courant-Friedrichs-Lewy) terkait dengan adveksi dari properti yang diberikan, dirumuskan sebagai
+	\begin{equation}
+		\Delta t \leq min\left(\frac{\Delta x}{u},\frac{\Delta y}{v},\frac{\Delta z}{w}\right).
+	\end{equation}
+	Terkait dengan perambatan gelombang gravitasi permukaan, kriteria kestabilan diberikan oleh
+	\begin{equation}
+		\Delta t \leq \frac{min(\Delta x,\Delta y)}{\sqrt{2gh_{max}}}.
+	\end{equation} 
+	dengan $h_{max}$ adalah kedalaman air maksimum dari domain model.
 \end{spacing}
 \vspace{-0.1pc}
 \section[Model Iklim]{Model Iklim}
