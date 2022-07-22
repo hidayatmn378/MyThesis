@@ -13,6 +13,16 @@
 	
 	Persamaan matematika yang mengatur aliran viskoelastik fluida berasal dari persamaan-persamaan hukum konservasi fisika yaitu konservasi massa, momentum dan persamaan konstitutif reologi \shortcite{Alves2021}. Penjabaran dari hukum-hukum tersebut menentukan bagaimana suatu persamaan model hidrodinamika dibuat. Salah satu persamaan fluida yang paling terkenal adalah persamaan Navier-Stokes yang terdiri dari persamaan momentum, persamaan kontinuitas, dan persamaan kekekalan densitas \shortcite{Haditiar2020}. Persamaan Navier-Stokes digunakan untuk menggambarkan fluida yang mengalir dan dianggap memiliki pergerakan yang kontinu. Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas \shortcite{Rafiq2019,Das2018,Khan2019}. Sebuah partikel fluida diilustrasikan pada Gambar \ref{fig:cube}a, dan \ref{fig:cube}b. Komponen fluida seperti tekanan $p$, kecepatan $u$, dan densitas $\rho$ terletak pada pusat partikel yang bergantung terhadap waktu $(t)$ dan ruang $(x,y,z)$. Sehingga, komponen-komponen tersebut dapat ditulis dalam fungsi $p(x,y,z,t), u(x,y,z,t)$  dan $\rho(x,y,z,t)$. 
 	
+	Asumsikan bahwa partikel fluida yang diobservasi sangat kecil sehingga sifat fluida pada permukaan kubus dapat diekspresikan secara akurat dengan menggunakan dua suku pertama dari ekspansi deret Taylor, 
+	\begin{equation*}
+		\sum_{n=0}^{\infty}\frac{f^{n}(a)}{n!}(x-a)^n = f(a)+\frac{f'(a)}{1!}(x-a)+\dots
+	\end{equation*} 
+	Sebagai contoh, tekanan pada muka $W$ dan $E$, keduanya memiliki jarak $\frac{1}{2}\delta x$ dari posisi partikel di tengah sehingga diperoleh bentuk ekspresi,
+	\begin{equation*}
+		p-\frac{\partial p}{\partial x}\frac{1}{2}\delta x \quad \text{dan} \quad
+		p+\frac{\partial p}{\partial x}\frac{1}{2}\delta x.
+	\end{equation*}
+	Hal yang sama dapat dilakukan untuk variabel yang lainnya.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=16cm]{contents/cube}
