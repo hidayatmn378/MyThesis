@@ -69,6 +69,7 @@
 	\begin{equation}
 		\frac{\partial \rho}{\partial t} + \text{adv}(\rho) = \text{diff}(\rho).
 	\end{equation}
+	
 	Dalam aplikasinya, persamaan Navier-Stokes tidak hanya digunakan untuk memodelkan laut, tapi juga merambah ke bidang pemodelan cuaca \shortcite{Rohli2021}, aliran air dalam pipa \shortcite{Ouchiha2012} dan aliran udara di sekitar sayap pesawat \shortcite{Tulus2019}. Dalam bentuk persamaan lengkap dan simplifikasi, persamaan ini juga dapat digunakan untuk mendesain kereta api \shortcite{Croquer2020}, pesawat terbang \shortcite{Chau2021}, dan mobil \shortcite{Ambarita2018}. Terdapat juga studi tentang aliran darah \shortcite{Gill2021}, desain stasiun pembangkit listrik \shortcite{Yang2019}, dan analisis polusi udara \shortcite{Issakhov2022}. 
 
 \subsection[Diskritisasi Numerik]{Diskritisasi Numerik}
@@ -165,15 +166,37 @@
 \vspace{-0.1pc}
 \section[Model Iklim]{Model Iklim}
 \begin{spacing}{1.5}
-	Aplikasi deret waktu (\textit{time series}) banyak melibatkan data yang menunjukkan siklus musiman. Contoh yang paling umum digunakan adalah data cuaca. Dalam penelitian \shortciteNP{Haridhi2016}, model nonlinear regresi (Pers. \ref{eq:nrl}) digunakan untuk mengkarakterisasi hubungan antara SST (\textit{sea surface temperature}) dan ND (\textit{net deployment}) - penyebaran jaring nelayan pukat cincin tradisional. Untuk menvalidasi temuan ini, mereka menggunakan persamaan siklus musiman \citeA[p. 793]{crawley2012r} dan mencari korelasi antara data SST dan data meteorologi. Dilain hal, \shortciteNP{Ikhwan2022} dalam penelitiannya mengkaji tentang kedalaman lapisan campuran (MLD) di laut Andaman menggunakan data salinitas (SSS) dari model 3-D CMEMS (\textit{Copernicus Marine Environment Monitoring Service}). Model iklim digunakan untuk mengidentifikasi dan memvalidasi jumlah musim MLD dalam setahun. Persamaan nonregresi linear diformulasikan dalam bentuk,
+	Aplikasi deret waktu (\textit{time series}) banyak melibatkan data yang menunjukkan siklus musiman. Contoh yang paling umum digunakan adalah data cuaca. Dalam penelitian \shortciteNP{Haridhi2016}, model nonlinear regresi (Pers. \ref{eq:nrl}) digunakan untuk mengkarakterisasi hubungan antara SST (\textit{sea surface temperature}) dan ND (\textit{net deployment}) - penyebaran jaring nelayan pukat cincin tradisional. Untuk menvalidasi temuan ini, mereka menggunakan persamaan siklus musiman \citeA[p. 793]{crawley2012r} dan mencari korelasi antara data SST dan data meteorologi. Dilain hal, \shortciteNP{Ikhwan2022} dalam penelitiannya mengkaji tentang kedalaman lapisan campuran (MLD) di laut Andaman menggunakan data salinitas (SSS) dari model 3-D CMEMS (\textit{Copernicus Marine Environment Monitoring Service}). Model iklim digunakan untuk mengidentifikasi dan memvalidasi jumlah musim MLD dalam setahun. Persamaan nonregresi linear \shortcite{Haridhi2016} diformulasikan dalam bentuk ,
 	\begin{equation}\label{eq:nrl}
 		y = b_1 + b_2(\sin(b_3x+b_4))
 	\end{equation}
 	dengan $b_1$ adalah konstanta pergeseran vertikal, $b_2$ adalah amplitudo gelombang sinus, $b_3$ adalah frekuensi, x adalah variabel waktu, dan $b_4$ adalah fase.
-	Persamaan untuk siklus musiman diberikan oleh,
+	Persamaan untuk siklus musiman \shortcite[p. 793]{crawley2012r} diberikan oleh,
 	\begin{equation}
 		y = \alpha + \beta \sin(2\pi t)+\gamma \cos(2\pi t) + \epsilon
 	\end{equation}
 	dengan adalah $\alpha$ konstanta pergesaran vertikal, $\beta$ adalah amplitude dari gelombang sinus, $\gamma$ adalah amplitude dari gelombang kosinus, $t$ adalah waktu, dan $\epsilon$ adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
 \end{spacing}
+\vspace{-0.1pc}
+\section[Kedalaman Lapisan Campuran]{Kedalaman Lapisan Campuran}
+\begin{spacing}{1.5}
+	Laut dan atmosfer berinteraksi dengan permukaan lautan. Gaya permukaan dari atmosfer dan matahari menentukan pola keseluruhan dari suhu permukaan laut (SST). SST yang tinggi pada daerah tropis disebabkan oleh pemanasan (sedikit lebih tinggi dari $29^\circ$C di daerah tropis yang paling hangat) dan SST yang rendah pada daerah latitude atau lintang tinggi disebabkan oleh pendinginan (sekitar $-1.8^\circ$C di daerah pembentuk es, dengan variasi musiman terutama
+	terlihat jelas di lintang menengah hingga tinggi). Struktur dari potensial temperatur vertikal dapat dibagi menjadi 3 zona mayor: (1) lapisan campuran (\textit{mixed layer}), (2) lapisan termoklin, dan (3) lapisan abisal. Struktur dari lapisan ini khas untuk daerah lintang rendah dan menengah dengan SST tinggi. Lebih lanjut, 2 zona pertama berada di lapisan paling atas lautan, sedangkan zona temperature yang ketiga berada di lapisan menengah, dalam, dan bawah lautan. Di lintang tinggi di mana SST rendah, struktur ini berbeda, dan dapat memiliki lapisan campuran, suhu minimum vertikal dan maksimum di bawah permukaan laut.
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=13cm]{contents/mld_theory}
+		\caption{Profil suhu potensial ($^\circ$C)/kedalaman (m) tipikal untuk laut terbuka di (a) Pasifik Utara bagian barat tropis ($5^\circ$LU), (b) Pasifik Utara subtropis barat dan timur ($24^\circ$LU), dan ( c) Pasifik Utara subkutub barat ($47^\circ$LU) \protect\shortcite[p. 71]{talley2011descriptive}}
+		\label{fig:mld_theory}
+	\end{figure}
+	Lapisan campuran (\textit{mixed layer} (ML)) adalah lapisan permukaan dengan sifat yang relatif tercampur dengan baik, khususnya di penghujung malam (siklus diurnal) dan di musim dingin (siklus musiman). Pada musim panas di lintang rendah, ML bisa jadi sangat tipis atau bahkan tidak ada sama sekali. Pada musim dingin di lintang menengah hingga tinggi, dan di daerah konveksi dalam yang terisolasi, ML dapat memiliki ketebalan hingga 2000 m. Sebagai tambahan informasi, Lapisan ini bercampur dengan angin dan kehilangan daya apung karena pendinginan atau penguapan (evaporasi) di permukaan laut. ML tidak tercampur oleh pemanasan dan presipitasi di permukaan laut dan oleh sirkulasi di dalam lapisan campuran yang memindahkan air campuran yang berdekatan dengan sifat yang berbeda satu sama lain.
+	
+	Lapisan termoklin adalah zona vertikal dengan penurunan temperatur yang cepat dengan kedalaman kira-kira 1000 m. Dalam lapisan abisal, antara termoklin dan bawah laut, nilai potensial temperatur menurun secara perlahan. Di lintang tinggi, suhu minimum dekat permukaan (lapisan dikothermal) sering ditemukan, sisa dari lapisan campuran musim dingin yang "tertutup" dengan air yang lebih hangat di musim lain (Gambar \ref{fig:mld_theory}c); suhu maksimum yang mendasari (lapisan mesothermal) dihasilkan dari adveksi air dari lokasi yang agak lebih hangat. Struktur suhu ini stabil karena ada stratifikasi salinitas yang kuat, dengan air tawar di lapisan permukaan. Suhu tipikal di garis lintang subtropis adalah $20^\circ$C di permukaan, $8^\circ$C pada 500 m, $5^\circ$C pada 1000 m, dan $1-2^\circ$C pada 4000 m. Semua nilai ini dan bentuk sebenarnya dari profil suhu adalah fungsi dari garis lintang, seperti yang ditunjukkan oleh tiga profil yang berbeda pada Gambar \ref{fig:mld_theory}.
+	
+	Lebih lanjut, di semua wilayah pemanasan musim semi dan musim panas menghasilkan lapisan hangat tipis yang menutupi lapisan campuran musim dingin. Di daerah subtropis barat serta daerah lain, sering ada dua termoklin dengan lapisan yang kurang berlapis (lebih isotermal) (termostat) di antara keduanya, semuanya di atas 1000 m (Gambar \ref{fig:mld_theory}b). Di beberapa daerah lapisan campuran lain ditemukan di bagian paling bawah ("lapisan batas bawah") dan dapat mencapai ketebalan 100 m.
+\end{spacing}
+\vspace{-0.1pc}
+%\section[Parameter Meteorologi]{Parameter Meteorologi}
+%\begin{spacing}{1.5}
+%
+%\end{spacing}
