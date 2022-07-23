@@ -82,7 +82,7 @@
 		\label{fig:grid}
 	\end{figure}
 	
-	Dalam aplikasinya, beberapa software pemodelan lau mengimplementasikan grid bertingkat (\textit{staggered grid}) yang diperkenalkan oleh \shortciteNP{ARAKAWA1977}, yaitu grid A, B dan C. Lebih lanjut, antara grid A, dan grid C terdapat perbedaan fundamental yaitu letak penyimpanan simpul variabel (lihat Gambar \ref{fig:arakawa}), sedangkan grid B dapat dianggap sebagai peralihan dari grid A ke grid C dan perbedaan tipe model grid ini menjadi penting dikarenakan peningkatan kapasitas komputasi yang stabil di banyak pusat pemodelan iklim telah mengantarkan periode transisi untuk model laut global  \shortcite{Barham2018,Delandmeter2019}. 
+	Dalam aplikasinya, beberapa software pemodelan laut mengimplementasikan grid bertingkat (\textit{staggered grid}) yang diperkenalkan oleh \shortciteNP{ARAKAWA1977}, yaitu grid A, B dan C. Lebih lanjut, antara grid A, dan grid C terdapat perbedaan fundamental yaitu letak penyimpanan simpul variabel (lihat Gambar \ref{fig:arakawa}), sedangkan grid B dapat dianggap sebagai peralihan dari grid A ke grid C dan perbedaan tipe model grid ini menjadi penting dikarenakan peningkatan kapasitas komputasi yang stabil di banyak pusat pemodelan iklim telah mengantarkan periode transisi untuk model laut global  \shortcite{Barham2018,Delandmeter2019}. 
 	
 	\begin{figure}[H]
 		\centering
@@ -130,9 +130,9 @@
 	Selanjutnya, nilai tebakan pertama dari komponen kecepatan dalam persamaan terakhir dihitung dengan cara,
 	\begin{equation}
 		\begin{aligned}
-			u_{i,j,k}^{*} &= cos(\alpha)u_{i,j,k}^{n}+sin(\alpha)v_{u}^{n} - \Delta t \text{adv}(u) + \Delta t F_{u}^{n}\\
-			v_{i,j,k}^{*} &= cos(\alpha)v_{i,j,k}^{n}+sin(\alpha)u_{v}^{n} - \Delta t \text{adv}(v) + \Delta t F_{v}^{n}\\
-			w_{i,j,k}^{*} &= w_{i,j,k}^{n} - \Delta t \text{adv}(w) + \Delta t F_{w}^{n}
+			u_{i,j,k}^{*} &= \cos(\alpha)u_{i,j,k}^{n}+\sin(\alpha)v_{u}^{n} - \Delta t \; \text{adv}(u) + \Delta t F_{u}^{n}\\
+			v_{i,j,k}^{*} &= \cos(\alpha)v_{i,j,k}^{n}+\sin(\alpha)u_{v}^{n} - \Delta t \; \text{adv}(v) + \Delta t F_{v}^{n}\\
+			w_{i,j,k}^{*} &= w_{i,j,k}^{n} - \Delta t \; \text{adv}(w) + \Delta t F_{w}^{n}
 		\end{aligned}
 	\end{equation}
 	dengan $\alpha = \Delta tf, \; u_v \;\text{dan}\;v_u$ adalah nilai $u$ dan $v$ yang diinterpolasi pada titik grid $v$ dan $u$. Nilai $F_{u}^{n}, F_{v}^{n},\;\text{dan}\;F_{w}^{n}$ diberikan oleh,
@@ -143,7 +143,7 @@
 			F_{w}^{n} &=-\frac{1}{\rho_o \Delta x}(q_{i-1,j,k}^{n}-q_{i,j,k}^{n})+\text{diff}(w)
 		\end{aligned}
 	\end{equation}
-	dengan diff($u$), diff($v$), dan diff($w$) menunjukkan momentum difusi. Setelah iterasi \textit{Successive Over-Relaxation}(SOR) telah terkumpul untuk akurasi tekanan yang ditentukan, nilai-nilai komponen kecepatan pada tingkat waktu berikutnya $(n+1)$ diberikan oleh,
+	dengan diff($u$), diff($v$), dan diff($w$) menunjukkan momentum difusi. Setelah iterasi \textit{Successive Over-Relaxation} (SOR) telah terkumpul untuk akurasi tekanan yang ditentukan, nilai-nilai komponen kecepatan pada tingkat waktu berikutnya $(n+1)$ diberikan oleh,
 	\begin{equation}
 		\begin{aligned}
 			u_{i,j,k}^{n+1} &= u_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k+1}^{r} - \Delta q_{i,j,k}^{r})\\
@@ -165,5 +165,15 @@
 \vspace{-0.1pc}
 \section[Model Iklim]{Model Iklim}
 \begin{spacing}{1.5}
+	Aplikasi deret waktu (\textit{time series}) banyak melibatkan data yang menunjukkan siklus musiman. Contoh yang paling umum digunakan adalah data cuaca. Dalam penelitian \shortciteNP{Haridhi2016}, model nonlinear regresi (Pers. \ref{eq:nrl}) digunakan untuk mengkarakterisasi hubungan antara SST (\textit{sea surface temperature}) dan ND (\textit{net deployment}) - penyebaran jaring nelayan pukat cincin tradisional. Untuk menvalidasi temuan ini, mereka menggunakan persamaan siklus musiman \citeA[p. 793]{crawley2012r} dan mencari korelasi antara data SST dan data meteorologi. Dilain hal, \shortciteNP{Ikhwan2022} dalam penelitiannya mengkaji tentang kedalaman lapisan campuran (MLD) di laut Andaman menggunakan data salinitas (SSS) dari model 3-D CMEMS (\textit{Copernicus Marine Environment Monitoring Service}). Model iklim digunakan untuk mengidentifikasi dan memvalidasi jumlah musim MLD dalam setahun. Persamaan nonregresi linear diformulasikan dalam bentuk,
+	\begin{equation}\label{eq:nrl}
+		y = b_1 + b_2(\sin(b_3x+b_4))
+	\end{equation}
+	dengan $b_1$ adalah konstanta pergeseran vertikal, $b_2$ adalah amplitudo gelombang sinus, $b_3$ adalah frekuensi, x adalah variabel waktu, dan $b_4$ adalah fase.
+	Persamaan untuk siklus musiman diberikan oleh,
+	\begin{equation}
+		y = \alpha + \beta \sin(2\pi t)+\gamma \cos(2\pi t) + \epsilon
+	\end{equation}
+	dengan adalah $\alpha$ konstanta pergesaran vertikal, $\beta$ adalah amplitude dari gelombang sinus, $\gamma$ adalah amplitude dari gelombang kosinus, $t$ adalah waktu, dan $\epsilon$ adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
 \end{spacing}
 	
