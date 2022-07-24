@@ -3,7 +3,7 @@
 %\section[State of the Art]{State of the Art}
 \begin{spacing}{1.5}
 	
-	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan Navier-Stokes dalam pemodelan laut, termasuk didalamnya grid C Arakawa, dan diskritisasi numerik atas persamaan Navier-Stokes serta kriteria kestabilan dari model. Terakhir, akan dibahas mengenai model iklim yang digunakan.
+	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan Navier-Stokes dalam pemodelan laut, termasuk didalamnya grid C Arakawa, dan diskritisasi numerik atas persamaan Navier-Stokes serta kriteria kestabilan dari model. Terakhir, akan dibahas mengenai model iklim yang digunakan serta kedalaman lapisan campuran.
 	
 	
 \end{spacing}
@@ -43,28 +43,28 @@
 	\end{equation}
 	Tekanan p dihitung secara diagnostik dari densitas  dan percepatan gravitasi g seperti pada persamaan berikut 
 	\begin{equation}
-		\frac{\partial p}{\partial z} = -(\rho - \rho_0)g.
+		\frac{\partial p}{\partial z} = -(\rho - \rho_o)g.
 	\end{equation}
 	Sedangkan tekanan q dihitung secara prognostik dalam persamaan momentum (implisit). Hal ini karena tekanan q bergantung terhadap sirkulasi arus.
 	\par Persamaan momentum lengkap untuk model nonhidrostatik adalah sebagai berikut
-	\begin{equation}
+	\begin{equation}\label{eq:momentum}
 		\begin{aligned}
-			\frac{\partial u}{\partial t} + \text{adv}(u)-fv &= \frac{-1}{\rho_0}\frac{\partial(p+q)}{\partial x}+\text{diff}(u) \\
-			\frac{\partial v}{\partial t} + \text{adv}(v)+fu &= \frac{-1}{\rho_0}\frac{\partial(p+q)}{\partial y}+\text{diff}(v) \\
-			\frac{\partial w}{\partial t} +\text{adv}(w) &= \frac{-1}{\rho_0}\frac{\partial(q)}{\partial y}+\text{diff}(w).
+			\frac{\partial u}{\partial t} + \text{adv}(u)-fv &= \frac{-1}{\rho_o}\frac{\partial(p+q)}{\partial x}+\text{diff}(u) \\
+			\frac{\partial v}{\partial t} + \text{adv}(v)+fu &= \frac{-1}{\rho_o}\frac{\partial(p+q)}{\partial y}+\text{diff}(v) \\
+			\frac{\partial w}{\partial t} +\text{adv}(w) &= \frac{-1}{\rho_o}\frac{\partial q}{\partial z}+\text{diff}(w).
 		\end{aligned}	
 	\end{equation}
-	\par Dengan $\text{adv}(\psi)=u\frac{\partial \psi}{\partial x}+v\frac{\partial \psi}{\partial y}+w\frac{\partial \psi}{\partial z}$ adalah persamaan adveksi dan $\text{diff}(\psi)=\frac{\partial}{\partial x}(A_{H} \frac{\partial \psi}{\partial x})+\frac{\partial}{\partial y}(A_{H} \frac{\partial \psi}{\partial y})+\frac{\partial}{\partial z}(A_{Z} \frac{\partial \psi}{\partial z})$ adalah persamaan difusi dengan $A_H$ dan $A_Z$ koefisien gesekan eddy horizontal dan vertikal. Kecepatan arus dalam sistem koordinat Cartesian 3-D didefinisikan dengan u,v, dan w. Waktu didefinisikan dengan t, parameter Coriolis dengan f, dan densitas air laut referensi dengan $\rho_0$.
+	\par Dengan $\text{adv}(\psi)=u\frac{\partial \psi}{\partial x}+v\frac{\partial \psi}{\partial y}+w\frac{\partial \psi}{\partial z}$ adalah persamaan adveksi dan $\text{diff}(\psi)=\frac{\partial}{\partial x}(A_{H} \frac{\partial \psi}{\partial x})+\frac{\partial}{\partial y}(A_{H} \frac{\partial \psi}{\partial y})+\frac{\partial}{\partial z}(A_{Z} \frac{\partial \psi}{\partial z})$ adalah persamaan difusi dengan $A_H$ dan $A_Z$ koefisien gesekan eddy horizontal dan vertikal. Kecepatan arus dalam sistem koordinat Cartesian 3-D didefinisikan dengan u,v, dan w. Waktu didefinisikan dengan t, parameter Coriolis dengan f, dan densitas air laut referensi dengan $\rho_o$.
 	
 	Konservasi volume diekspresikan oleh persamaan kontinuitas untuk fluida yang tak termampatkan,
-	\begin{equation}
+	\begin{equation}\label{eq:kontinuitas}
 		\frac{\partial u}{\partial t} + \frac{\partial v}{\partial t} + \frac{\partial w}{\partial t} = 0.
 	\end{equation}
-	Berdasarkan persamaan kontinuitas (2.4), tekanan dinamis pada lapisan permukaan dapat dihitung dengan persamaan berikut
-	\begin{equation}
-		\frac{\partial q_s}{\partial t} = \rho_0 g_i \times \left( \frac{(\partial \left(H \langle u \rangle \right)} {\partial x} + \frac{(\partial \left(H \langle v \rangle \right)} {\partial y}\right)
+	Berdasarkan persamaan kontinuitas \ref{eq:kontinuitas}, tekanan dinamis pada lapisan permukaan dapat dihitung dengan persamaan berikut
+	\begin{equation}\label{eq:tekanan}
+		\frac{\partial q_s}{\partial t} = \rho_o g_i \times \left( \frac{(\partial \left(H \langle u \rangle \right)} {\partial x} + \frac{(\partial \left(H \langle v \rangle \right)} {\partial y}\right)
 	\end{equation}
-	dengan $q_s = \rho_0 g \eta$. Disini $\rho_0$ adalah densitas air laut referensi, dan $\eta$ adalah elevasi permukaan laut, $H$ adalah total kedalaman laut, dan $<.>$ adalah operator rata-rata vertikal.
+	dengan $q_s = \rho_o g \eta$. Disini $\rho_o$ adalah densitas air laut referensi, dan $\eta$ adalah elevasi permukaan laut, $H$ adalah total kedalaman laut, dan $<.>$ adalah operator rata-rata vertikal.
 	\par Densitas air laut bergantung pada temperatur, salinitas, dan tekanan. Selanjutnya asumsikan bahwa air laut hanya bergantung linear terhadap temperatur dan salinitas, serta difusifitas \textit{eddy} untuk temperatur dan salinitas sama. Persamaan konservasi densitas diberikan oleh,
 	\begin{equation}
 		\frac{\partial \rho}{\partial t} + \text{adv}(\rho) = \text{diff}(\rho).
@@ -95,21 +95,99 @@
 		Grid A adalah satu-satunya \textit{unstaggered grid} dalam grid Arakawa dimana variabel-variabelnya (\textit{zonal velocity (u), meridional velocity (v), tracers (T)}) hanya terdapat pada titik sudut grid, berbeda dengan grid C yang berada di sisi dan tengah grid. $i$ dan $j$ adalah indeks yang merepresentasikan variabel kolom dan baris dimana variabel disimpan.
 	\end{figure}
 \subsubsection[Solusi Nonhidrostatik dari Persamaan Momentum]{Solusi Nonhidrostatik dari Persamaan Momentum}
-	Dari persamaan 2.4 dan dengan aturan perkalian turunan, suku adveksi untuk parameter sembarang $B$ dapat dituliskan sebagai,
-	\begin{equation*}
-		u\frac{\partial B}{\partial x} + v\frac{\partial B}{\partial y} + w\frac{\partial B}{\partial z} = \frac{\partial (uB)}{\partial x} + \frac{\partial (vB)}{\partial y} + \frac{\partial (wB)}{\partial z} - B\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}\right).
-	\end{equation*}
+%	Dari persamaan 2.4 dan dengan aturan perkalian turunan, suku adveksi untuk parameter sembarang $B$ dapat dituliskan sebagai,
+%	\begin{equation*}
+%		u\frac{\partial B}{\partial x} + v\frac{\partial B}{\partial y} + w\frac{\partial B}{\partial z} = \frac{\partial (uB)}{\partial x} + \frac{\partial (vB)}{\partial y} + \frac{\partial (wB)}{\partial z} - B\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}\right).
+%	\end{equation*}
+	Tanpa mengurangi keumuman, persamaan \ref{eq:momentum}, \ref{eq:kontinuitas}, dan \ref{eq:tekanan} dapat disimplifikasi menjadi,
+	\begin{equation}\label{eq:momentumS}
+		\begin{aligned}
+			\frac{\partial u}{\partial t} &= \frac{-1}{\rho_o}\frac{\partial q}{\partial x} \\
+			\frac{\partial v}{\partial t} &= \frac{-1}{\rho_o}\frac{\partial q}{\partial y} \\
+			\frac{\partial w}{\partial t} &= \frac{-1}{\rho_o}\frac{\partial q}{\partial z},
+		\end{aligned}
+	\end{equation}
+	\begin{equation}\label{eq:kontinuitasS}
+		\frac{\partial u}{\partial t} + \frac{\partial v}{\partial t} + \frac{\partial w}{\partial t} = 0, 
+	\end{equation}
+	dan
+	\begin{equation}\label{tekananS}
+		\frac{\partial q_s}{\partial t} = \rho_o g_i \times \left( \frac{(\partial \left(H \langle u \rangle \right)} {\partial x} + \frac{(\partial \left(H \langle v \rangle \right)} {\partial y}\right).
+	\end{equation}
+	Persamaan ini adalah persamaan lengkap yang mengatur dinamika gelombang gravitasi permukaan linier dalam kerapatan laut yang seragam. Hasilnya adalah lima persamaan diferensial parsial yang digabungkan dengan lima variabel yang tidak diketahui. Persamaan ini menggambarkan dinamika gelombang gravitasi permukaan pendek dan panjang.
 	
 	Solusi dari tekanan hidrostatik $q$ dipecah menjadi komponen eksplisit dan implisit sehingga,
 	\begin{equation*}
-		q \Rightarrow q^n + \Delta q^{n+1}
+		q \Rightarrow q^n + \Delta q^{n+1}.
 	\end{equation*}
-	Untuk persamaan momentum 3-D, persamaan poisson untuk $\Delta q$ yang bersesuaian adalah
+	Dengan Skema beda maju untuk waktu (\textit{time-forward}), bentuk kecepatan $u, v$ dan $w$ dapat ditebak,
+	\begin{equation}
+		\begin{aligned}
+			u_{i,j,k}^{*} &= u_{i,j,k}^{n}-\frac{\Delta t}{\rho_o \Delta x}(q_{i,j,k+1}^{n}-q_{i,j,k}^{n}) \\
+			v_{i,j,k}^{*} &= v_{i,j,k}^{n}-\frac{\Delta t}{\rho_o \Delta y}(q_{i,j+1,k}^{n}-q_{i,j,k}^{n})
+			\\
+			w_{i,j,k}^{*} &= w_{i,j,k}^{n}-\frac{\Delta t}{\rho_o \Delta z}(q_{i-1,j,k}^{n}-q_{i,j,k}^{n})
+		\end{aligned}
+	\end{equation}
+	dengan $i,j$ dan $k$ adalah indeks dalam grid C Arakawa. Karena $q^{n+1} = q^{n} + \Delta q^{n+1} $ maka persamaan beda hingga dari persamaan momentum dalam \ref{eq:momentumS} dapat dituliskan menjadi,
+	\begin{equation}\label{eq:MS1}
+		\begin{aligned}
+			u_{i,j,k}^{n+1} &= u_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k+1}^{n+1}-\Delta q_{i,j,k}^{n+1}) \\
+			v_{i,j,k}^{n+1} &= v_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta y}(\Delta q_{i,j+1,k}^{n+1}-\Delta q_{i,j,k}^{n+1})
+			\\
+			w_{i,j,k}^{n+1} &= w_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta z}(\Delta q_{i-1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}).
+		\end{aligned}
+	\end{equation}
+	Selanjutnya dari persamaan \ref{eq:kontinuitasS} kita tahu bahwa,
+	\begin{equation}
+		\begin{aligned}
+			0 &= \frac{\partial u}{\partial t} + \frac{\partial v}{\partial t} + \frac{\partial w}{\partial t} \\
+			&= \frac{u_{i,j,k+1}^{n+1}-u_{i,j,k}^{n+1}}{\Delta x} + \frac{v_{i,j+1,k}^{n+1}-v_{i,j,k}^{n+1}}{\Delta y} +
+			\frac{w_{i-1,j,k}^{n+1}-w_{i,j,k}^{n+1}}{\Delta z}.
+		\end{aligned}
+	\end{equation}
+	Asumsikan bahwa nilai yang memenuhi persamaan ini adalah $u_{i,j,k+1}^{n+1}=u_{i,j,k}^{n+1}=0, v_{i,j+1,k}^{n+1}=v_{i,j,k}^{n+1}=0, w_{i-1,j,k}^{n+1}=w_{i,j,k}^{n+1}=0$. Akibatnya persamaan \ref{eq:MS1} menjadi,
+	\begin{equation}\label{eq:MS2}
+		\begin{aligned}
+			u_{i,j,k}^{*} &= \frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k+1}^{n+1}-\Delta q_{i,j,k}^{n+1}) \\
+			v_{i,j,k}^{*} &= \frac{\Delta t}{\rho_o \Delta y}(\Delta q_{i,j+1,k}^{n+1}-\Delta q_{i,j,k}^{n+1})
+			\\
+			w_{i,j,k}^{*} &= \frac{\Delta t}{\rho_o \Delta z}(\Delta q_{i-1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}).
+		\end{aligned}
+	\end{equation}
+	Dengan cara yang sama diperoleh,
+	\begin{equation}\label{eq:MS3}
+		\begin{aligned}
+			u_{i,j,k-1}^{*} &= \frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k}^{n+1}-\Delta q_{i,j,k-1}^{n+1}) \\
+			v_{i,j-1,k}^{*} &= \frac{\Delta t}{\rho_o \Delta y}(\Delta q_{i,j,k}^{n+1}-\Delta q_{i,j-1,k}^{n+1})
+			\\
+			w_{i,j,k-1}^{*} &= \frac{\Delta t}{\rho_o \Delta z}(\Delta q_{i,j,k}^{n+1}-\Delta q_{i+1,j,k}^{n+1}).
+		\end{aligned}
+	\end{equation}
+	Kalikan $\frac{\rho_o}{\Delta t}$ pada persamaan \ref{eq:MS2} dan \ref{eq:MS3} lalu kurangkan persamaan \ref{eq:MS2}a dengan \ref{eq:MS3}a, \ref{eq:MS2}b dengan \ref{eq:MS3}b, dan \ref{eq:MS2}c dengan \ref{eq:MS3}c diperoleh
+	\begin{equation}\label{eq:MS4}
+		\begin{aligned}
+			\frac{\rho_o}{\Delta t}(u_{i,j,k}^{*}-u_{i,j,k-1}^{*}) &= \frac{\Delta q_{i,j,k+1}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta x} + \frac{\Delta q_{i,j,k-1}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta x} \\
+			\frac{\rho_o}{\Delta t}(v_{i,j,k}^{*}-v_{i,j-1,k}^{*}) &= \frac{\Delta q_{i,j+1,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta y} + \frac{\Delta q_{i,j-1,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta y} \\
+			\frac{\rho_o}{\Delta t}(w_{i,j,k}^{*}-w_{i+1,j,k}^{*}) &= \frac{\Delta q_{i-1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta z} + \frac{\Delta q_{i+1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta z}.
+		\end{aligned}
+	\end{equation}
+	Kalikan kedua ruas pada persamaan \ref{eq:MS4}a dengan $\frac{1}{\Delta x \Delta y}$, persamaan \ref{eq:MS4}b dengan $\frac{1}{(\Delta y)^2}$, dan persamaan \ref{eq:MS4}c dengan $\frac{1}{\Delta y \Delta z}$ lalu jumlahkan hasil ketiga persamaan tersebut diperoleh,
+	\begin{equation}\label{eq:MS5}
+		\begin{aligned}
+			\frac{\rho_o}{\Delta t}\left(\frac{u_{i,j,k}^{*}-u_{i,j,k-1}^{*}}{\Delta x \Delta y} + \frac{v_{i,j,k}^{*}-v_{i,j-1,k}^{*}}{(\Delta y)^2} + \frac{w_{i,j,k}^{*}-w_{i+1,j,k}^{*}}{\Delta y \Delta z}\right) = \\
+			\frac{\Delta q_{i,j,k+1}^{n+1}-\Delta q_{i,j,k}^{n+1}}{(\Delta x)^2\Delta y} + \frac{\Delta q_{i,j,k-1}^{n+1}-\Delta q_{i,j,k}^{n+1}}{(\Delta x)^2\Delta y} + \\
+			\frac{\Delta q_{i,j+1,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{(\Delta y)^3} + \frac{\Delta q_{i,j-1,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{(\Delta y)^3} +
+			\\
+			\frac{\Delta q_{i-1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta y(\Delta z)^2} + \frac{\Delta q_{i+1,j,k}^{n+1}-\Delta q_{i,j,k}^{n+1}}{\Delta y(\Delta z)^2}.
+		\end{aligned}
+	\end{equation}
+	Selanjutnya hasil persamaan \ref{eq:MS5} dikalikan dengan $\frac{1}{\Delta x \Delta y \Delta z}$ menghasilkan persamaan poisson untuk $\Delta q$ yang bersesuaian,
 	\begin{equation}\label{eq:poisson}
 		\begin{aligned}
 			a_e \Delta q_{i,j,k+1}^{n+1} + a_w \Delta q_{i,j,k-1}^{n+1} + a_n \Delta q_{i,j+1,k}^{n+1} + a_s \Delta q_{i,j-1,k}^{n+1} \; + \\
-			a_b \Delta q_{i+1,j,k}^{n+1} + 
-			a_t \Delta q_{i-1,j,k}^{n+1} -
+			a_t \Delta q_{i-1,j,k}^{n+1} +
+			a_b \Delta q_{i+1,j,k}^{n+1} -
 			a_o \Delta q_{i,j,k}^{n+1} = q_{i,j,k}^{*}
 		\end{aligned}
 	\end{equation}
@@ -132,11 +210,11 @@
 	\begin{equation}
 		\begin{aligned}
 			u_{i,j,k}^{*} &= \cos(\alpha)u_{i,j,k}^{n}+\sin(\alpha)v_{u}^{n} - \Delta t \; \text{adv}(u) + \Delta t F_{u}^{n}\\
-			v_{i,j,k}^{*} &= \cos(\alpha)v_{i,j,k}^{n}+\sin(\alpha)u_{v}^{n} - \Delta t \; \text{adv}(v) + \Delta t F_{v}^{n}\\
+			v_{i,j,k}^{*} &= \cos(\alpha)v_{i,j,k}^{n}-\sin(\alpha)u_{v}^{n} - \Delta t \; \text{adv}(v) + \Delta t F_{v}^{n}\\
 			w_{i,j,k}^{*} &= w_{i,j,k}^{n} - \Delta t \; \text{adv}(w) + \Delta t F_{w}^{n}
 		\end{aligned}
 	\end{equation}
-	dengan $\alpha = \Delta tf, \; u_v \;\text{dan}\;v_u$ adalah nilai $u$ dan $v$ yang diinterpolasi pada titik grid $v$ dan $u$. Nilai $F_{u}^{n}, F_{v}^{n},\;\text{dan}\;F_{w}^{n}$ diberikan oleh,
+	dengan $\alpha = \Delta tf, \; u_v \;\text{dan}\;v_u$ adalah nilai $u$ dan $v$ yang diinterpolasi pada titik grid $v$ dan $u$. Perhatikan bahwa, suku $\cos(\alpha)u_{i,j,k}^{n}+\sin(\alpha)v_{u}^{n}$ dan $\cos(\alpha)u_{i,j,k}^{n}-\sin(\alpha)v_{u}^{n}$ merupakan hasil transformasi dari koordinat rotasi dan persamaan beda hingga untuk gaya Coriolis. Nilai $F_{u}^{n}, F_{v}^{n},\;\text{dan}\;F_{w}^{n}$ diberikan oleh,
 	\begin{equation}
 		\begin{aligned}
 			F_{u}^{n} &=-\frac{1}{\rho_o \Delta x}(p_{i,j,k+1}^{n}-p_{i,j,k}^{n}+q_{i,j,k+1}^{n}-q_{i,j,k}^{n})+\text{diff}(u)\\
@@ -144,7 +222,7 @@
 			F_{w}^{n} &=-\frac{1}{\rho_o \Delta x}(q_{i-1,j,k}^{n}-q_{i,j,k}^{n})+\text{diff}(w)
 		\end{aligned}
 	\end{equation}
-	dengan diff($u$), diff($v$), dan diff($w$) menunjukkan momentum difusi. Setelah iterasi \textit{Successive Over-Relaxation} (SOR) telah terkumpul untuk akurasi tekanan yang ditentukan, nilai-nilai komponen kecepatan pada tingkat waktu berikutnya $(n+1)$ diberikan oleh,
+	dengan diff($u$), diff($v$), dan diff($w$) menunjukkan momentum difusi. Setelah iterasi \textit{Successive Over-Relaxation} (SOR) konvergen untuk akurasi tekanan yang ditentukan, nilai-nilai komponen kecepatan pada tingkat waktu berikutnya $(n+1)$ diberikan oleh,
 	\begin{equation}
 		\begin{aligned}
 			u_{i,j,k}^{n+1} &= u_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta x}(\Delta q_{i,j,k+1}^{r} - \Delta q_{i,j,k}^{r})\\
@@ -152,6 +230,7 @@
 			w_{i,j,k}^{n+1} &= w_{i,j,k}^{*}-\frac{\Delta t}{\rho_o \Delta z}(\Delta q_{i-1,j,k+1}^{r} - \Delta q_{i,j,k}^{r})\\
 		\end{aligned}
 	\end{equation}
+	dengan indeks $r$ merujuk pada hasil iterasi SOR. Untuk kasus 3-D, iterasi pada SOR mencakup pembaruan nilai permukaan $\Delta q$ melalui perhitungan divergensi lateral nilai terintegrasi kedalaman u dan v.
 \subsection[Kriteria Kestabilan]{Kriteria Kestabilan}
 	Kriteria stabilitas CFL (Courant-Friedrichs-Lewy) terkait dengan adveksi dari properti yang diberikan, dirumuskan sebagai
 	\begin{equation}
