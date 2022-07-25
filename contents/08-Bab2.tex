@@ -238,7 +238,7 @@
 	\end{equation}
 	Terkait dengan perambatan gelombang gravitasi permukaan, kriteria kestabilan diberikan oleh
 	\begin{equation}
-		\Delta t \leq \frac{min(\Delta x,\Delta y)}{\sqrt{2gh_{max}}}.
+		\Delta t \leq \frac{min(\Delta x,\Delta y)}{\sqrt{2gh_{max}}}
 	\end{equation} 
 	dengan $h_{max}$ adalah kedalaman air maksimum dari domain model.
 \end{spacing}
@@ -255,6 +255,51 @@
 		y = \alpha + \beta \sin(2\pi t)+\gamma \cos(2\pi t) + \epsilon
 	\end{equation}
 	dengan adalah $\alpha$ konstanta pergesaran vertikal, $\beta$ adalah amplitude dari gelombang sinus, $\gamma$ adalah amplitude dari gelombang kosinus, $t$ adalah waktu, dan $\epsilon$ adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
+	
+	Misalkan sebuah titik bergerak dengan kecepatan konstan pada suatu lingkaran dengan jari-jari $\rho$ dan $t$ adalah waktu yang dihitung saat jari-jari terhubung dengan titik pusat pada sudut $\theta$ dibawah sumbu horizontal. Jika titik tersebut diproyeksikan pada sumbu horizontal maka jarak proyeksi dari titik pusat adalah 
+	\begin{equation}\label{eq:MIK1}
+		x = \rho \cos(\omega t-\theta)
+	\end{equation}
+	dengan $\rho$ adalah amplitudo, $\omega$ adalah kecepatan sudut atau frekuensi, dan $\theta$ adalah perpindahan fase. Gerakan proyeksi bolak-balik sepanjang sumbu horizontal digambarkan sebagai gerak harmonik sederhana.
+	
+	Kecepatan sudut diukur dalam radian per satuan periode, kuantitas $2\pi / \omega$ adalah periode siklus. Pergerakan fase, juga diukur dalam radian, menunjukkan sejauh mana fungsi kosinus telah berpindah oleh pergeseran sepanjang waktu. Jadi, alih-alih puncak fungsi terjadi pada waktu $t = 0$, seperti yang terjadi pada fungsi kosinus biasa, sekarang terjadi pada
+	waktu $t = \theta/\omega$. Selanjutnya perhatikan bahwa $\cos(A-B) = \cos(A)\cos(B)+\sin(A)\sin(B)$, akibatnya persamaan \ref{eq:MIK1} dapat ditulis menjadi
+	\begin{equation}
+		\begin{aligned}
+			x &= \rho \cos(\theta)\cos(\omega t) + \rho \sin(\theta)\sin(\omega t) \\
+			&= \alpha\cos(\omega t) + \beta\sin(\omega t)
+		\end{aligned}
+	\end{equation}
+	dengan 
+	\begin{equation*}
+		\alpha = \rho \cos(\theta), \quad 
+		\beta = \rho \sin(\theta), \quad \text{dan} \quad
+		\alpha^2 + \beta^2 = \rho^2
+	\end{equation*}
+\subsection[Siklus Teratur]{Siklus Teratur}
+	Sebuah komponen siklus yang tersembunyi di bawah gerakan lain dapat diekstraksi dari urutan data dengan aplikasi langsung dari metode regresi linier. Persamaanya dapat dituliskan dalam bentuk
+	\begin{equation}\label{eq:MIK2}
+		y_t = \alpha c_t(\omega) + \beta s_t(\omega) + e_t; \quad t = 0, \dots, T-1
+	\end{equation}
+	dengan $c_t(\omega)=\cos(\omega t)$ dan $s_t(\omega)=\sin(\omega t)$. Untuk menghindari perlunya istilah intersep, nilai-nilai variabel dependen harus berupa deviasi terhadap nilai rata-rata. Dalam bentuk matriks, persamaan \ref{eq:MIK2} ditulis menjadi
+	\begin{eqnarray}
+		y = [c \quad s][\alpha \quad \beta]^T + e
+	\end{eqnarray} 
+	dengan $c = [c_0,\dots,c_N]^T, \; s = [s_0, \dots, s_N]^T$ dan $e = [e_0,\dots,e_N]^T$ adalah vektor dengan $N$ elemen. Parameter $\alpha, \beta$ dapat dicari dengan menjalankan regresi untuk nilai $\omega$ yang beragam dan  dengan memilih regresi yang memberikan nilai terendah untuk jumlah sisa kuadrat.
+	
+	Representasi siklus musim ideal dengan fungsi sinusoidal sederhana mungkin tidak masuk akal. Meskipun demikian, bentuk gelombang dengan sifat yang lebih rumit dapat disintesis dengan menggunakan serangkaian fungsi sinus dan kosinus yang frekuensinya merupakan kelipatan bilangan bulat dari frekuensi musiman dasar. Jika terdapat $s = 2n$ observasi per tahun, maka model umum untuk fluktuasi musiman akan terdiri dari frekuensi
+	\begin{equation}
+		\omega_j = \frac{2\pi j}{s}, \quad j = 0, \dots, n = \frac{s}{2},
+	\end{equation}
+	yang mana sama dengan ruang pada interval $[0, \pi]$. Deretan frekuensi seperti ini disebut juga sebagai skala harmonik.
+	
+	Fluktuasi model musiman terdiri dari kumpulan frekuensi harmonis yang berhubungan yang diformulasikan sebagai,
+	\begin{equation}
+		y_t = \sum_{j=0}^{n}{\alpha_j\cos(\omega_j t)+\beta_j\sin(\omega_j t)}+e_t,
+	\end{equation}
+	dengan $e_t$ adalah elemen residu yang dapat merepresentasikan ketidak beraturan komponen \textit{white-noise} dalam proses yang mendasari data.
+	
+\subsection[Siklus Tidak Teratur]{Siklus Tidak Teratur}
 \end{spacing}
 \vspace{-0.1pc}
 \section[Kedalaman Lapisan Campuran]{Kedalaman Lapisan Campuran}
