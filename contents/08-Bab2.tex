@@ -36,7 +36,7 @@
 \vspace{-1pc}
 \section[Persamaan Primitif]{Persamaan Primitif}
 \begin{spacing}{1.5}
-	\par Model sirkulasi laut atau \textit{Ocean General Circulation Models} (OGCM) menggunakan persamaan Navier-Stokes untuk memodelkan fenomena fisis yang terjadi di lautan. Lautan adalah fluida yang dapat dijelaskan dengan baik dengan pendekatan persamaan-persamaan primitif, yaitu persamaan Navier-Stokes bersama dengan persamaan keadaan nonlinier yang menggabungkan dua variabel (suhu dan salinitas) dengan kecepatan fluida, ditambah dengan pertimbangan beberapa asumsi \shortcite{madec_gurvan_2022_6334656}.
+	\par Model sirkulasi laut atau \textit{Ocean General Circulation Models} (OGCM) menggunakan persamaan Navier-Stokes untuk memodelkan fenomena fisis yang terjadi di lautan. Lautan adalah fluida yang dapat dijelaskan dengan baik dengan pendekatan persamaan-persamaan primitif, yaitu persamaan Navier-Stokes bersama dengan persamaan keadaan nonlinier yang menggabungkan dua variabel (suhu dan salinitas) dengan kecepatan fluida, ditambah dengan pertimbangan beberapa asumsi dan hipotesis \shortcite{madec_gurvan_2022_6334656}.
 	
 	Beberapa hipotesis yang digunakan adalah hipotesis Boussinesq, hipotesis hidrostatik, dan hipotesis tak termampatkan (\textit{incompressibility}). Berdasarkan hipotesis Boussinesq, variasi densitas diabaikan kecuali dalam kontribusinya terhadap gaya apung sehingga 
 	\begin{equation}
@@ -101,11 +101,6 @@
 		y = b_1 + b_2(\sin(b_3x+b_4))
 	\end{equation}
 	dengan $b_1$ adalah konstanta pergeseran vertikal, $b_2$ adalah amplitudo gelombang sinus, $b_3$ adalah frekuensi, x adalah variabel waktu, dan $b_4$ adalah fase.
-	Persamaan untuk siklus musiman \shortcite[p. 793]{crawley2012r} diberikan oleh,
-	\begin{equation}
-		y = \alpha + \beta \sin(2\pi t)+\gamma \cos(2\pi t) + \epsilon
-	\end{equation}
-	dengan $\alpha$ adalah konstanta pergesaran vertikal, $\beta$ adalah amplitude dari gelombang sinus, $\gamma$ adalah amplitude dari gelombang kosinus, $t$ adalah waktu, dan $\epsilon$ adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
 	
 	Misalkan sebuah titik bergerak dengan kecepatan konstan pada suatu lingkaran dengan jari-jari $\rho$ dan $t$ adalah waktu yang dihitung saat jari-jari terhubung dengan titik pusat pada sudut $\theta$ dibawah sumbu horizontal. Jika titik tersebut diproyeksikan pada sumbu horizontal maka jarak proyeksi dari titik pusat adalah 
 	\begin{equation}\label{eq:MIK1}
@@ -125,8 +120,14 @@
 	\begin{equation*}
 		\alpha = \rho \cos(\theta), \quad 
 		\beta = \rho \sin(\theta), \quad \text{dan} \quad
-		\alpha^2 + \beta^2 = \rho^2
+		\alpha^2 + \beta^2 = \rho^2.
 	\end{equation*}
+
+	Persamaan untuk siklus musiman \shortcite[p. 793]{crawley2012r} secara lengkap diberikan oleh,
+	\begin{equation}\label{eq:sm}
+		y = \alpha + \beta \sin(2\pi t)+\gamma \cos(2\pi t) + \epsilon
+	\end{equation}
+	dengan $\alpha$ adalah konstanta pergesaran vertikal, $\beta$ adalah amplitude dari gelombang sinus, $\gamma$ adalah amplitude dari gelombang kosinus, $t$ adalah waktu, dan $\epsilon$ adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
 \end{spacing}
 \vspace{-0.1pc}
 \section[Kedalaman Lapisan Campuran]{Kedalaman Lapisan Campuran}
