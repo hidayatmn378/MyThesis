@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{animate}
 \usepackage{xcolor} % 'svgnames' for 'MistyRose'
+\usepackage{multirow}
 
 %comment
 \newcommand{\comment}[1]{}
@@ -61,14 +62,22 @@
 	\item Domain Penelitian
 	\item Data Penelitian
 	\item Prosedur Penelitian
+	\item Jadwal Penelitian
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \section{Pendahuluan}
-\subsection{Latar Belakang dan Rumusan Masalah}
+\begin{frame}
+	\centering
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=10cm]{Bg_1}
+	\end{figure}
+\end{frame}
+\subsection{Latar Belakang}
 \begin{frame}[allowframebreaks]
-\frametitle{Latar Belakang dan Rumusan Masalah}
+\frametitle{Latar Belakang}
 %	\lipsum[75]
 	\begin{figure}[H]
 		\centering
@@ -129,6 +138,13 @@
 \end{frame}
 
 \section{Tinjauan Pustaka}
+\begin{frame}
+	\centering
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=10cm]{Bg_2}
+	\end{figure}
+\end{frame}
 \subsection{Persamaan Gerak Fluida}
 \begin{frame}
 	\frametitle{Persamaan Gerak Fluida}
@@ -177,7 +193,7 @@
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{grid.jpg}
-	\caption{Diskritisasi grid dalam Parcels. Di bidang horizontal: (a) grid persegi, (b) grid lengkung, di bidang vertikal: (c) grid level z, (d) grid level s (Delandmeter \& van Sebille, 2019)}
+	\caption{Jenis grid dalam pemodelan laut. Di bidang horizontal: (a) grid persegi, (b) grid lengkung, di bidang vertikal: (c) grid level z, (d) grid level s (Delandmeter \& van Sebille, 2019)}
 	\label{fig:grid}
 	\end{figure}
 	$\;$ \\
@@ -214,6 +230,13 @@
 \end{frame}
 
 \section{Metodologi Penelitian}
+\begin{frame}
+	\centering
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=10cm]{Bg_3}
+	\end{figure}
+\end{frame}
 \subsection{Domain Penelitian}
 \begin{frame}
 	\frametitle{Domain Penelitian}
@@ -236,7 +259,9 @@
 		\caption{Data penelitian}
 		\label{fig:data}
 		\tiny
-		Data yang digunakan adalah data arus 3-D (resolusi spasial, NEMO: 5 mnt, HYCOM: 5 mnt lon, 2.5 mnt lat) dan data angin selama setahun, dari April 2021 - Maret 2022. 
+		Data yang digunakan adalah data arus permukaan, serta data temperatur dari NEMO (resolusi spasial 5 mnt) dan data meteorologi (2m air temperature, 2m specific
+		humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind
+		stress V) dari NCEP/NCAR selama 22 tahun dari tahun 2000 - 2021. 
 	\end{figure}
 \end{frame}
 
@@ -249,6 +274,28 @@
 		\caption{Diagram alir penelitian}
 		\label{fig:flowchart}
 	\end{figure}
+\end{frame}
+
+\subsection{Jadwal Penelitian}
+\begin{frame}
+	\frametitle{Jadwal Penelitian}
+		\begin{table}[htp]
+			\centering
+			\caption{Rencana jadwal pelaksanaan penelitian}
+			\label{table:jadwal}
+			\begin{tabular}{|c|c|ccccccc|}
+				\hline
+				\multirow{2}{*}{No.} & \multirow{2}{*}{Kegiatan} & \multicolumn{7}{c|}{Bulan}                                                                                                                            \\ \cline{3-9} 
+				&                   & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{1} &  2 \\ \hline 1
+				& Studi literatur   & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 2
+				& Seminar proposal    & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 3
+				& Pengumpulan data    & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 4
+				& Hasil dan analisis  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 5
+				& Seminar hasil       & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} &  \\ \hline 6
+				& Ujian sidang        & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} &  \\ \hline 7
+				& Publikasi           & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & X  \\ \hline 
+			\end{tabular}
+		\end{table}
 \end{frame}
 \ThankYouFrame
 
