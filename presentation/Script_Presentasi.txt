@@ -1,0 +1,113 @@
+[Slide 1]
+Assalamualaikum wr. wb.
+[Opening]
+
+[Slide 2]
+Pada kesempatan kali ini saya akan membahas beberapa hal yakni pendahuluan penelitian yang meliputi: latar belakang penelitian, rumusan masalah dalam penelitian, tujuan penelitian, urgensi dan kebaruan penelitian, dan manfaat dari penelitian.
+Di bagian tinjauan pustaka, akan dibahas mengenai persamaan gerak fluida, persamaan primitif, Arakawa C-grid, model iklim, dan kedalaman lapisan campuran.
+Terakhir adalah metodologi penelitian yang meliputi: domain penelitian, data penelitian, prosedur penelitian dan jadwal penelitian.
+
+[Slide 3]
+
+[Slide 4]
+Dalam latar belakang penelitian ini ada beberapa hal yang perlu dibahas diantaranya adalah pertama tentang geografis penelitian, kedua adalah state of art atau kajian penelitian yang telah dilakukan dan yang terakhir tentang objektif penelitian.
+Dari segi geografis, Samudera hindia merupakan samudera terbesar ke-3 di dunia dan meliputi 19.8% dari total volume lautan.
+Samudera hindia mencakup wilayah BoB, Laut Andaman, Selat Malaka, dan Perairan Aceh.
+Dengan cakupan wilayah yang begitu luas, Samudera Hindia merupakan penyumbang besar bagi sistem iklim dunia dan oleh karena itu
+sangat penting untuk dapat diprediksi.
+Pengembangan model kelautan berusaha untuk menggambarkan iklim global dengan cukup baik disertai dengan pengamatan. Namun,
+variabilitas spasial dan temporal perlu dipahami untuk prediksi yang lebih baik.
+Pemanasan matahari dan kekuatan angin bervariasi dalam ruang dan waktu yang akan tercermin dalam variabilitas lapisan campuran laut dan suhu permukaan. Oleh karena itu, fokus utama dari tesis ini adalah peran gaya atmosfer lokal pada variabilitas lapisan
+campuran dan akibatnya pada suhu permukaan laut.
+
+[Slide 5]
+Beberapa studi observasional dan pemodelan telah dilakukan untuk mempelajari pengaruh interaksi atmosfer-laut terhadap variabilitas suhu permukaan laut (SST), salinitas permukaan laut (SSS),  klorofil-a (chl-a), kedalaman lapisan campuran (MLD) dan sirkulasi pada wilayah perairan Samudera Hindia, diantaranya adalah, Kantha et al., Jyothibabu et al, dan Srivastava et al. yang melakukan penelitian di BoB terkait pencampuran turbulen lapisan atas, distribusi biomassa fitoplankton, dan simulasi model tanpa gaya angin dekat permukaan.
+Penelitian yang lain adalah Buckley et al, dan Akhter et al. tentang pengembangan stratifikasi laut atas yang kuat yang berdampak pada evolusi SST dan SSS serta pendinginan SST dan peningkatan SSS dalam kaitannya dengan badai siklon Titli.
+Dalam penelitian Parida et al. dan Chowdhuri et al, mereka meneliti tentang pengaruh radiasi panas terhadap peningkatan konsentrasi chl-a serta kajian mengenai konsentrasi maksimum chl-a di permukaan dan bawah permukaan.
+
+[Slide 6]
+Dalam kaitannya dengan MLD, dari penelitian Ikhwan et al., dan Kumar et. al, diketahui bahwa angin dan presipitasi mempengaruhi MLD dimana presipitasi membutuhkan waktu 2 bulan sebelum terjadi perubahan MLD. Pendinginan SST yang terjadi sebagai respons badai Roanu, 2016 juga mempengaruhi MLD.
+Lainnya adalah penelitian Seo et al., dan Jain et. al. Hasilnya adalah investigasi MLD secara signifikan terlihat pada garis lintang pantai timur India yang terpisah dan pendangkalan MLD dan stratifikasinya dipengaruhi oleh wind relatif atau angin relatif. Ditemukan juga bahwa SSS juga berpengaruh terhadap MLD.
+Perbedaan distribusi vertikal dan MLD di daerah di beberapa bagian wilayah BoB terhadap pengaruh angin, SST, dan SSS.
+
+[Slide 7]
+Selanjutnya adalah penelitian dari Dandapat et al., Sandhukan et al., dan Narvekar & Prasanna Kumar, yang meneliti tentang kajian pendalaman dan pendangkalan MLD di 2 lintang berbeda di BoB di pengaruhi oleh masuknya air tawa yang besar, fluks panas bersih tekanan angin dan perbedaan musim.
+Untuk penelitian tentang MLD di wilayah Laut Andaman dan perairan Aceh sendiri, masih jarang dilakukan. Beberapa diantaranya adalah Ikhwan pada tahun 2022 dan Yunita pada tahun 2021.
+
+[Slide 8]
+Masuk ke rumusan masalah dalam penelitian tesis ini. Fokus dari penelitian tesis ini adalah menjawab masalah utama, yaitu: 
+• Bagaimana pengaruh parameter meteorologi terhadap kedalaman lapisan campuran (Mixed Layer Depth) di Perairan Aceh?
+Subpertanyaan berikut akan berkontribusi pada perumusan jawaban atas masalah utama. Diantaranya adalah,
+• Bagaimana analisis kedalaman lapisan campuran (MLD) di wilayah perairan Aceh dalam 12 bulan pada tahun 2021?
+• Bagaimana analisis model iklim untuk parameter-parameter meteorologi 2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind stress V selama 22 tahun, tahun 2000 - 2021?
+• Bagaimana hubungan parameter meteorologi terhadap analisis kedalaman lapisan campuran (MLD) di wilayah perairan Aceh?
+
+[Slide 9]
+Adapun tujuan dari penelitian ini adalah mencari tahu pengaruh parameter meteorologi terhadap kedalaman lapisan campuran (Mixed Layer Depth) di Perairan Aceh dengan cara 
+• Analisis kedalaman lapisan campuran (MLD) di wilayah perairan Aceh dalam 12 bulan pada tahun 2021.
+• Analisis model iklim untuk parameter-parameter meteorologi 2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind stress V selama 22 tahun, tahun 2000 - 2021.
+• Hubungan parameter meteorologi terhadap analisis kedalaman lapisan campuran (MLD) di wilayah perairan Aceh.
+
+[Slide 10]
+Adapun urgensi dan kebaruan dalam penelitian ini, Sejauh pengamatan kami, studi secara detail terkait 6 parameter meteorologi dan dampaknya terhadap lapisan vertikal di wilayah perairan Aceh belum pernah dilakukan sebelumnya. Oleh karena itu, dirasa penting untuk melakukan penelitian ini guna mengetahui pengaruh paramater meteorologi terhadap kedalaman lapisan campuran
+(MLD).
+
+[Slide 11]
+Manfaat dari penelitian ini adalah, Penelitian ini diharapkan mampu memberikan kontribusi ilmiah dan memperkaya pengetahuan tentang kedalaman lapisan campuran atau MLD. Hal ini karena
+MLD berperan penting secara iklim fisik dalam hal menentukan interval kisaran temperatur di wilayah laut dan pesisir. Selanjutnya adalah Dari periodesitas model iklim yang diperoleh akan bermanfaat untuk tujuan fishing ground, mitigasi
+perubahan iklim dan bencana hidro-oseanografi, tata
+ruang dan konservasi laut, dan sumber energi terbarukan
+
+[Slide 12]
+Selanjutnya masuk ke tinjauan pustaka. Struktur pembahasan studi relevan dan tinjauan teori dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan persamaan Navier-Stokes dalam pemodelan laut, serta grid C Arakawa. Selanjutnya, akan dibahas mengenai model iklim yang digunakan sebagai verifikasi dan terakhir tentang kedalaman lapisan campuran.
+
+[Slide 13]
+Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas. ebuah partikel fluida diilustrasikan pada Gambar 2.1a, dan 2.1b. Komponen fluida seperti tekanan p, kecepatan u, dan densitas ρ terletak pada pusat partikel yang bergantung terhadap waktu (t) dan ruang (x, y, z). Sehingga, komponen-komponen tersebut dapat ditulis dalam fungsi p(x, y, z, t), u(x, y, z, t) dan ρ(x, y, z, t).
+Massa jenis dari partikel ρ(x, y, z, t) pada gambar bagian (a) dapat diterjemahkan sebagai aliran yang masuk dan keluar. Pada gambar bagian (b), arah aliran massa jenis pada partikel pusat merupakan jumlahan dari aliran massa jenis masuk dan keluar. Dengan cara yang sama, dapat juga dilakukan untuk tekanan dan kecepatan.
+
+[Slide 14]
+Model sirkulasi laut atau ocean general circulation model disingkat OGCM menggunakan persamaan Navier-Stokes untuk memodelkan fenomena fisis yang terjadi di lautan. Lautan adalah fluida yang dapat dijelaskan dengan baik dengan pendekatan
+persamaan-persamaan primitif, yaitu persamaan Navier-Stokes bersama dengan persamaan keadaan nonlinier yang menggabungkan dua variabel (suhu dan salinitas) dengan kecepatan fluida, ditambah dengan pertimbangan beberapa asumsi dan hipotesis. Diantaranya adalah hipotesis Boussinesq, Hipotesis hidrostatik, dan Hipotesis tak termampatkan atau (incompressibility). 
+
+[Slide 15]
+Dari hipotesis-hipotesis ini diperoleh bentuk vektor invarian dari persamaan primitif dalam sistem vektor (i, j, k) yang diberikan oleh persamaan kesetimbangan momentum dalam persamaan 1 pada slide, dan persamaan konservasi panas dan salinitas dalam persamaan 2 pada slide. 
+Dengan ∇ operator vektor turunan yang diperumum dalam arah (i, j, k), t adalah waktu, z adalah koordinat vertikal, ρ adalah densitas in situ dalam persamaan keadaan hipotesis Boussinesq, ρ o adalah densitas referensi, p adalah tekanan, f = 2Ω . k adalah percepatan Coriolis (dengan Ω adalah vector kecepatan sudut bumi), g adalah
+percepatan gravitasi. D U , D T , dan D S adalah parameterisasi dari fisika skala kecil untuk momentum, temperature, dan salinitas, dan F U , F T , dan F S adalah suku gaya permukaan.
+
+[Slide 16]
+Selanjutnya, ini adalah jenis grid yang digunakan dalam pemodelan laut. Diskritisasi grid di bidang horizontal dapat dibedakan menjadi grid persegi (rectiliniear) Gambar 2.2a dan grid lengkung (curvlinear) Gambar 2.2b, di bidang vertikal berupa grid level z (z-coordinates) Gambar 2.2c dan grid level s (σ-coordinate) Gambar 2.2d.
+
+[Slide 17]
+Dalam aplikasinya, beberapa software pemodelan laut mengimplementasikan grid bertingkat (staggered grid) yang diperkenalkan oleh Arakawa & Lamb, 1977, yaitu grid A, B dan C. Lebih lanjut, antara grid A, dan grid C terdapat perbedaan fundamental yaitu letak penyimpanan simpul variabel (lihat Gambar 2.3), sedangkan grid B dapat dianggap sebagai peralihan dari grid A ke grid C dan perbedaan tipe model grid ini menjadi penting dikarenakan peningkatan kapasitas komputasi yang stabil di banyak
+pusat pemodelan iklim telah mengantarkan periode transisi untuk model laut global.
+Grid A dalam gambar 2.3(a) diatas adalah satu-satunya unstaggered grid dalam grid Arakawa dimana variabel-variabelnya (zonal
+velocity (u), meridional velocity (v), tracers (T)) hanya terdapat pada titik sudut grid, berbeda dengan grid C yang berada di sisi dan tengah grid. i dan j adalah indeks yang merepresentasikan variabel kolom dan baris dimana variabel disimpan.
+
+[Slide 18]
+Aplikasi deret waktu (time series) banyak melibatkan data yang menunjukkan siklus musiman. Contoh yang paling umum digunakan adalah data cuaca. Persamaan untuk siklus musiman secara lengkap
+diberikan oleh persamaan 3 pada slide, dengan dengan α adalah konstanta pergesaran vertikal, β adalah amplitude dari gelombang sinus, γ adalah amplitude dari gelombang kosinus, t adalah waktu, dan epsilon adalah elemen residual yang mungkin mewakili komponen white-noise tidak beraturan dalam proses yang mendasari data.
+
+[Slide 19]
+Selanjutnya adalah mixed layer depth atau kedalaman lapisan campuran. Suhu yang cukup konstan pada kedalaman 100 − 200m atas disebut sebagai mixed layer. Mixed layer atau lapisan campuran adalah hasil dari pengaruh angin permukaan, gelombang, dan arus yang mencampur air bagian atas dan mendistribusikan panas ke seluruh lapisan ini. Di bawah lapisan campuran terdapat penurunan suhu yang cepat sejalan dengan peningkatan kedalaman lautan. Lapisan ini disebut sebagai thermocline. Di bawah lapisan termoklin, suhu laut dalam cukup konstan sekitar 2 ◦ C yang terus turun hingga ke dasar laut yang disebut sebagai lapisan Abisal. karena lapisan abisal ini jauh dari sumber panas yang signifikan, menjadikannya salah satu daerah yang paling stabil secara termal di bumi.
+
+[Slide 20]
+Ini adalah ilustrasi kedalaman lapisan campuran dimana gambar 2.4(a) adalah Profil suhu laut terbuka yang khas untuk wilayah lintang tengah, menunjukkan lapisan campuran, termoklin yang curam, dan suhu yang relatif stabil di kedalaman, 
+gambar 2.4(b) adalah Profil suhu representatif untuk daerah
+tropis, lintang tengah, dan kutub, dan 
+terakhir adalah gambar 2.4 (c). Di daerah beriklim sedang, lapisan campuran lebih dalam dan termoklin kurang menonjol di musim dingin dibandingkan dengan musim panas.
+
+[Slide 21]
+Masuk ke metodologi penelitian
+
+[Slide 22]
+Domain penelitian adalah wilayah perairan Aceh yang ditampilkan pada slide gambar 3.1. 8 Sampel stasiun penelitian diambil untuk memperoleh hasil yang lebih akurat.
+
+[Slide 23]
+Data yang digunakan dapat dibedakan menjadi 2 yaitu data oseanografi meliputi data arus permukaan, serta data temperatur dari NEMO (dengan resolusi spasial 5 mnt). Data kedua adalah data meteorologi yakni (2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind stress V) dari NCEP/NCAR selama 22 tahun dari tahun 2000 - 2021.
+
+[Slide 24]
+Prosedur penelitian mengikuti diagram alir pada Gambar 3.2. Data-data terkait penelitian didownload terlebih dahulu kemudian diinterpolasi untuk memenuhi data yang kosong serta untuk memperoleh resolusi spasial yang lebih detail. Selanjutnya data hasil interpolasi kemudian dibaca dan di konversi ke dalam data matriks pada MATLAB. Hasilnya adalah peta arus, elevasi, temperature, dan data meteorologi. Peta temperature kemudian diobservasi untuk menentukan kedalaman lapisan campuran
+selama 12 bulan. Sebagai verifikasi atas observasi kedalaman lapisan campuran, akan dilakukan analisis model iklim terhadap data meteorologi (2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U, dan wind stress V) selama 22 tahun dari tahun 2000 sampai 2021.
+
+[Slide 25]
+Jadwal penelitian ditargetkan paling lama 7 bulan dengan rincian kegiatan disusun berdasarkan tabel 3.1.
