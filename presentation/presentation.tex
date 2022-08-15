@@ -26,7 +26,11 @@
 %\subtitle{Click Here to Add Subtitle}
 \author{Muh. Nur Hidayat}
 \date{\today}
-\institute{----\\ Pembimbing 1: Prof. Dr. Ir. Syamsul Rizal \\Pembimbing 2: Prof. Dr. Marwan Ramli, M.Si.}
+\institute{----\\ 
+	Pembimbing 1: Prof. Dr. Ir. Syamsul Rizal \\Pembimbing 2: Prof. Dr. Marwan Ramli, M.Si. \\
+	Penguji:  \\ 
+	Dr. Said Munzir, S.Si., M.Eng.Sc. \\  Dr. Salmawaty, M.Sc.}
+
 
 \begin{document}
 
@@ -42,13 +46,6 @@
 \framesubtitle{Table of Contents}
 \begin{itemize}
 \item Pendahuluan
-	\begin{itemize}
-	\item Latar Belakang
-	\item Rumusan Masalah
-	\item Tujuan Penelitian
-	\item Urgensi dan Kebaruan Penelitian
-	\item Manfaat Penelitian
-	\end{itemize}
 \item Tinjauan Pustaka
 	\begin{itemize}
 	\item Persamaan Gerak Fluida
@@ -58,12 +55,6 @@
 	\item Kedalaman Lapisan Campuran 
 	\end{itemize}
 \item Metodologi Penelitian
-	\begin{itemize}
-	\item Domain Penelitian
-	\item Data Penelitian
-	\item Prosedur Penelitian
-	\item Jadwal Penelitian
-	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -79,6 +70,10 @@
 \begin{frame}[allowframebreaks]
 \frametitle{Latar Belakang}
 %	\lipsum[75]
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{intro-0}
+	\end{figure}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=8cm]{intro-1}
@@ -151,7 +146,8 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=10cm]{cube.png}
-		\caption{(a) Ilustrasi partikel sebagai sifat fisis fluida. (b) Aliran massa jenis masuk dan keluar. Gambar direproduksi dari (Versteeg \& Malalasekera, 2007)}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 2.1. (a) Ilustrasi partikel sebagai sifat fisis fluida. (b) Aliran massa jenis masuk dan keluar. Gambar direproduksi dari (Versteeg \& Malalasekera, 2007)}
 		\label{fig:cube}
 	\end{figure}
 \end{frame}
@@ -162,7 +158,7 @@
 	$\;$ \\
 	$\;$ \\
 	$\;$ \\
-	Model OGCM $\rightarrow$ persamaan Navier-Stokes, menggunakan hipotesis
+	Model OGCM $\rightarrow$ persamaan Navier-Stokes, menggunakan hipotesis (Gurvan et al., 2022),
 	\begin{itemize}
 		\item {\small Hipotesis Boussinesq $\rightarrow \rho = \rho(T,S,p)$}
 		\item {\small Hipotesis hidrostatik $\rightarrow \frac{\partial p}{\partial z} = -\rho g$}
@@ -193,14 +189,16 @@
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=5cm]{grid.jpg}
-	\caption{Jenis grid dalam pemodelan laut. Di bidang horizontal: (a) grid persegi, (b) grid lengkung, di bidang vertikal: (c) grid level z, (d) grid level s (Delandmeter \& van Sebille, 2019)}
+	\captionsetup{labelformat=empty}
+	\caption{Gambar 2.2. Jenis grid dalam pemodelan laut. Di bidang horizontal: (a) grid persegi, (b) grid lengkung, di bidang vertikal: (c) grid level z, (d) grid level s (Delandmeter \& van Sebille, 2019)}
 	\label{fig:grid}
 	\end{figure}
 	$\;$ \\
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=7cm]{arakawa.jpg}
-		\caption{Grid Arakawa: (a) Grid A dan (b) Grid C (Delandmeter \& van Sebille, 2019)}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 2.3. Grid Arakawa: (a) Grid A dan (b) Grid C (Delandmeter \& van Sebille, 2019)}
 			\label{fig:arakawa}
 %			\medspace
 			\tiny
@@ -224,7 +222,8 @@
 		\begin{figure}[H]
 		\centering
 		\includegraphics[width=9cm]{mld_theory.png}
-		\caption{(a) Profil suhu laut terbuka yang khas untuk wilayah lintang tengah, menunjukkan lapisan campuran, termoklin yang curam, dan suhu yang relatif stabil di kedalaman, (b) Profil suhu representatif untuk daerah tropis, lintang tengah, dan kutub, dan (c) Di daerah beriklim sedang, lapisan campuran lebih dalam dan termoklin kurang menonjol di musim dingin dibandingkan dengan musim panas (Webb, 2021)}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 2.4. (a) Profil suhu laut terbuka yang khas untuk wilayah lintang tengah, menunjukkan lapisan campuran, termoklin yang curam, dan suhu yang relatif stabil di kedalaman, (b) Profil suhu representatif untuk daerah tropis, lintang tengah, dan kutub, dan (c) Di daerah beriklim sedang, lapisan campuran lebih dalam dan termoklin kurang menonjol di musim dingin dibandingkan dengan musim panas (Webb, 2021)}
 		\label{fig:mld_theory}
 	\end{figure}	
 \end{frame}
@@ -242,9 +241,11 @@
 	\frametitle{Domain Penelitian}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=9cm]{bathymetri}
-		\caption{Domain Penelitian}
+		\includegraphics[width=7cm]{bathymetri}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 3.1. Data batimetri domain perairan Aceh, dicuplik dari SRTM15+. Sampel stasiun 1-8: ($94^\circ$,$3.25^\circ$), ($95^\circ,3.25^\circ$), ($97^\circ,3.25^\circ$),	($94^\circ,4.5^\circ$), ($95^\circ,4.5^\circ$),	($94^\circ,6^\circ$), ($95^\circ,6^\circ$),($97^\circ,6^\circ$).}
 		\label{fig:domain}
+		
 	\end{figure}
 \end{frame}
 
@@ -256,7 +257,8 @@
 		\includegraphics[width=.5\textwidth]{logo_cmmes.png}
 		\\[\smallskipamount]
 		\includegraphics[width=.24\textwidth]{logo_ncep.jpeg}
-		\caption{Data penelitian}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 3.2. Data penelitian}
 		\label{fig:data}
 		\tiny
 		Data yang digunakan adalah data arus permukaan, serta data temperatur dari NEMO (resolusi spasial 5 mnt) dan data meteorologi (2m air temperature, 2m specific
@@ -271,7 +273,8 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=4cm]{flowchart.png}
-		\caption{Diagram alir penelitian}
+		\captionsetup{labelformat=empty}
+		\caption{Gambar 3.3. Diagram alir penelitian}
 		\label{fig:flowchart}
 	\end{figure}
 \end{frame}
@@ -281,7 +284,8 @@
 	\frametitle{Jadwal Penelitian}
 		\begin{table}[htp]
 			\centering
-			\caption{Rencana jadwal pelaksanaan penelitian}
+			\captionsetup{labelformat=empty}
+			\caption{Tabel 3.1. Rencana jadwal pelaksanaan penelitian}
 			\label{table:jadwal}
 			\begin{tabular}{|c|c|ccccccc|}
 				\hline
