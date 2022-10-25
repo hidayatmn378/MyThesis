@@ -16,6 +16,7 @@
 *(copy)*
 *.odt
 *.docs
+*.zip
 
 ## Intermediate documents:
 *.dvi
