@@ -39,7 +39,7 @@
 	\par Model sirkulasi laut atau \textit{Ocean General Circulation Models} (OGCM) menggunakan persamaan Navier-Stokes untuk memodelkan fenomena fisis yang terjadi di lautan. Lautan adalah fluida yang dapat dijelaskan dengan baik dengan pendekatan persamaan-persamaan primitif, yaitu persamaan Navier-Stokes bersama dengan persamaan keadaan nonlinier yang menggabungkan dua variabel (temperatur dan salinitas) dengan kecepatan fluida, ditambah dengan pertimbangan beberapa asumsi dan hipotesis \shortcite{madec_gurvan_2022_6334656}.
 	
 	Beberapa hipotesis yang digunakan adalah hipotesis Boussinesq, hipotesis hidrostatik, dan hipotesis tak termampatkan (\textit{incompressibility}). Berdasarkan hipotesis Boussinesq, variasi densitas diabaikan kecuali dalam kontribusinya terhadap gaya apung sehingga 
-	\begin{equation}
+	\begin{equation}\label{eq:P1}
 		\rho = \rho(T,S,p).
 	\end{equation}
 	Untuk hipotesis hidrostatik, persamaan momentum vertikal direduksi menjadi keseimbangan antara gradien tekanan vertikal dan gaya apung (ini menghilangkan proses konvektif dari persamaan Navier-Stokes awal dan proses konvektif harus diparameterisasi sebagai gantinya)
@@ -54,14 +54,14 @@
 	Karena gaya gravitasi dominan dalam persamaan gerak skala besar, maka berguna untuk memilih himpunan ortogonal dari vektor satuan $(i,j,k)$ yang dihubungkan dengan Bumi sedemikian rupa sehingga $k$ adalah vektor lokal ke atas dan $(i,j)$ adalah 2 vektor ortogonal terhadap $k$ - dalam hal ini bersinggungan dengan permukaan geopotensial. Selanjutnya definisikan beberapa variabel berikut, $U$ adalah vektor kecepatan dengan $U = U_h + wk$ ($h$ adalah notasi vektor horizontal lokal di atas bidang $(i,j)$), $T$ adalah potensial temperatur, $S$ adalah salinitas, $\rho$ adalah densitas in situ. Bentuk vektor invarian dari persamaan primitif dalam sistem vektor $(i, j, k)$ diberikan oleh persamaan berikut \shortcite{madec_gurvan_2022_6334656},
 	
 	- Persamaan kesetimbangan momentum
-	\begin{equation}
+	\begin{equation}\label{eq:P2}
 		\begin{aligned}
 			\frac{\partial U_h}{\partial t} = - \left[(\nabla \times U) \times U + \frac{1}{2}\nabla (U^2)\right]_h - f \; k \times U_h - \frac{1}{\rho_o}\nabla_h p + D^U + F^U.
 		\end{aligned}
 	\end{equation}
 
 	- Persamaan konservasi panas dan salinitas
-	\begin{equation}
+	\begin{equation}\label{eq:P3}
 		\begin{aligned}
 			\frac{\partial T}{\partial t} &= - \nabla \; . \; (T\;U)  + D^U + F^U \\
 			\frac{\partial S}{\partial t} &= - \nabla \; . \; (S\;U)  + D^U + F^U
@@ -92,6 +92,59 @@
 		\small
 		Grid A adalah satu-satunya \textit{unstaggered grid} dalam grid Arakawa dimana variabel-variabelnya (\textit{zonal velocity (u), meridional velocity (v), tracers (T)}) hanya terdapat pada titik sudut grid, berbeda dengan grid C yang berada di sisi dan tengah grid. $i$ dan $j$ adalah indeks yang merepresentasikan variabel kolom dan baris dimana variabel disimpan.
 	\end{figure}
+\end{spacing}
+\vspace{-0.1pc}
+\section[Sistem Koordinat]{Sistem Koordinat}
+\begin{spacing}{1.5}
+	Dalam arah horizontal, model menggunakan grid ortogonal lengkung dan dalam arah vertikal, model menggunakan langkah \textit{full} atau sebagian untuk koordinat z, atau koordinat s, atau campuran keduanya. Distribusi variabel adalah grid tipe Arakawa C tiga dimensi.
+\subsection[Sistem z-Koordinat Lengkung]{Sistem z-Koordinat Lengkung}
+	Mengingat sistem koordinat geografis demikian kompleks, maka penting untuk menyelesaikan persamaan primitif dalam berbagai sistem koordinat lengkung. Cara terbaik untuk menunjukkan transformasi koordinat adalah formalisme tensorial. Persamaan sederhana untuk kasus grid ortogonal 3-D pada bidang (perkiraan bumi bulat) dapat diilustrasikan sebagai berikut.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{contents/sphere.png}
+		\caption{Sistem koordinat geografis ($\lambda, \phi,z$) dan sistem koordinat lengkung ($i,j,k$) \protect\shortcite{madec_gurvan_2022_6334656}}.
+		\label{fig:sphere}
+	\end{figure}
+	Misal ($i,j,k$) adalah sistem koordinat lengkung dan ($\lambda, \phi,z$) adalah sistem koordinat geografis. Dalam hal ini $\phi(i,j)$ adalah latitude, $\lambda(i,j)$ adalah longitude, dan $a+z(k)$ adalah jarak dari titik pusat bumi ($a$ adalah radius bumi dan $z$ adalah altitude diatas permukaan laut referensi).
+	
+	Deformasi lokal diberikan oleh 3 faktor skala:
+	\begin{equation}\label{eq:scale}
+		\begin{aligned}
+			e_1 &= (a+z)\left[(\frac{\partial \lambda}{\partial i}^2\cos \phi)+(\frac{\partial \phi}{\partial i}^2)\right]^{1/2}\\
+			e_2 &= (a+z)\left[(\frac{\partial \lambda}{\partial j}^2\cos \phi)+(\frac{\partial \phi}{\partial j}^2)\right]^{1/2}\\
+			e_3 &=(\frac{\partial z}{\partial k}).
+		\end{aligned}
+	\end{equation}
+	Persamaan \ref{eq:P2} dan \ref{eq:P3} ke persamaan \ref{eq:P1} dapat dituliskan dalam bentuk tensorial sebagai berikut.
+		\begin{equation}\label{eq:tensor1}
+		\begin{aligned}
+			\nabla q &= \frac{1}{e_1}\frac{\partial q}{\partial i}i+\frac{1}{e_2}\frac{\partial q}{\partial j}j+\frac{1}{e_3}\frac{\partial q}{\partial k}k\\
+			\nabla \cdot A &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2a_1)}{\partial i}+\frac{\partial (e_1a_2)}{\partial  j}\right]+\frac{1}{e_3}\frac{\partial a_3}{\partial k}\\
+			\nabla \times A &= \left[\frac{1}{e_2}\frac{\partial (a_3)}{\partial j}-\frac{1}{e_3}\frac{\partial (a_2)}{\partial  k}\right]i+\left[\frac{1}{e_3}\frac{\partial (a_1)}{\partial k}-\frac{1}{e_1}\frac{\partial (a_3)}{\partial i}\right]j+ \\
+			& \frac{1}{e_1e_2}\left[\frac{\partial (e_2a_2)}{\partial i}+\frac{\partial (e_1a_1)}{\partial j}\right]k\\
+			\Delta q &=\nabla \cdot (\nabla q)\\
+			\Delta A &=\nabla(\nabla \cdot A)-\nabla \times (\nabla \times A)
+		\end{aligned}
+	\end{equation}
+	dengan $q$ adalah skalar dan $A=(a_1,a_2,a_3)$ adalah vektor dalam sistem koordinat $(i,j,k)$.
+	
+	Selanjutnya misalkan kecepatan $U=(u,v,w)=U_h+wk$, vortisitas relatif ($\zeta$), dan divergensi medan kecepatan horizontal ($\chi$) dengan
+	\begin{equation}
+	\begin{aligned}
+			\zeta &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2v)}{\partial i}-\frac{\partial (e_1u)}{\partial j}\right]\\
+			\chi &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2u)}{\partial i}+\frac{\partial (e_1v)}{\partial j}\right]
+	\end{aligned}
+	\end{equation}
+	Mengingat bahwa skala faktor horizontal $e_1$ dan $e_2$ \textit{independent} terhadap $k$ dan $e_3$ adalah fungsi dari variabel tunggal $k$, Suku nonlinear (\textit{nonlinear term} (NLT)) dari persamaan \ref{eq:P2} dan \ref{eq:P3} dapat ditransformasikan sebagai berikut.
+	
+	\begin{equation}
+		\begin{aligned}
+			NLT &= \left[(\nabla \times U)\times U+\frac{1}{2}\nabla(U^2)\right]_h \\
+			 &= \binom{\left[\frac{1}{e_3}\frac{\partial u}{\partial k}-\frac{1}{e_1}\frac{\partial w}{\partial i}\right]w-\zeta v}{\zeta v-\left[\frac{1}{e_2}\frac{\partial w}{\partial j}-\frac{1}{e_3}\frac{\partial v}{\partial k}\right]w}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2+w^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2+w^2)}{\partial j}}\\
+			 &=\binom{-\zeta v}{\zeta u}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2)}{\partial j}}+\frac{1}{e_3}\binom{w\frac{\partial u}{\partial k}}{w\frac{\partial v}{\partial k}}-\binom{\frac{w}{e_1}\frac{\partial w}{\partial i}-\frac{1}{2e_1}\frac{\partial w^2}{\partial i}}{\frac{w}{e_2}\frac{\partial w}{\partial j}-\frac{1}{2e_2}\frac{\partial w^2}{\partial j}}
+		\end{aligned}
+	\end{equation}
+	
 \end{spacing}
 \vspace{-0.1pc}
 \section[Model Iklim]{Model Iklim}
