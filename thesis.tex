@@ -25,6 +25,10 @@
 \usepackage{tikz}
 \usepackage{xcolor,colortbl}
 \usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{lscape}
+\usepackage{longtable}
 \usepackage{times}
 \usepackage{float}
 \usepackage{hyperref}
@@ -332,13 +336,13 @@
 %\addtocontents{toc}{\endgroup}
 %\input{contents/042-Output}
 %=====================================================================
- BAB IV
+% BAB IV
 \chapter{HASIL DAN PEMBAHASAN}
 \input{contents/10-Bab4}
 %=====================================================================
 % BAB V
-%\chapter{PENUTUP}
-%\input{contents/11-Bab5}
+\chapter{PENUTUP}
+\input{contents/11-Bab5}
 %=====================================================================
 % Halaman Daftar Pustaka
 \pagebreak
@@ -350,7 +354,7 @@
 %=====================================================================
 % Halaman Lampiran
 \newpage
-\newappendix{Lampiran 1. Penjabaran Persamaan Navier-Stokes}
+\newappendix{Lampiran 1. Tabulasi Data NCEP/NCAR}
 \addcontentsline{toc}{chapter}{LAMPIRAN}
 \input{contents/12-Lampiran1}
 %\pagebreak
