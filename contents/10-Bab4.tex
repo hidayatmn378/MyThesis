@@ -171,14 +171,57 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=15cm]{contents/final_figure/Figure_9}
-		\caption{Model musiman untuk pemaksaan atmosfer (a) pada garis lintang $9^\circ$N dan (b) pada garis lintang $19^\circ$N, dari tahun 2020 hingga 2021.}
-		\label{fig:SM}
+		\includegraphics[width=15cm]{contents/final_figure_paper1/gambar_1}
+		\caption{(a) Distribusi klorofil-a (Chl-a) (satuan dalam $mgm^{-3}$, kita mengambil nilai logaritmik untuk melihat variasi nilai lebih jelas), (b) Suhu permukaan laut (SST) (satuan dalam $^\circ$C), (c) Permukaan laut salinity (SSS) (satuan dalam Psu) pada Januari 2021.}
+		\label{fig:paper1_1}
 	\end{figure}
 \subsubsection[Analisis Korelasi]{Analisis Korelasi}
 	
-	\lipsum[1]
+	Analisis terhadap 3672 populasi untuk masing-masing variabel (Chl-a, SST, dan SSS) (lihat Tabel 1) menghasilkan analisis korelasi (lihat Gambar 4), tabel uji hipotesis (lihat Tabel 2), dan tabel analisis varians (lihat Tabel 3).
 	
+	Tabel 1 menunjukkan bahwa jumlah terbesar dari 3672 data yang digunakan adalah variabel SSS, diikuti oleh SST dan kemudian Chl-a. Hal yang sama terjadi untuk jumlah rata-rata. Nilai varians terkecil yang ditunjukkan oleh data Chl-a menunjukkan data yang seragam untuk Chl-a. Sedangkan variansi terbesar yang ditunjukkan oleh data SSS menunjukkan data yang cukup bervariasi.
+	
+	\begin{table}[H]
+		\centering
+		\caption{Rangkuman data yang digunakan dalam penelitian ini}
+		\label{table:paper1_1}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Grup  & Banyak & Jumlah   & Rata-rata & Variansi \\ \hline
+			Chl-a & 3672   & 893.7106 & 0.243385  & 0.126751 \\ \hline
+			SST   & 3672   & 101963.2 & 27.76776  & 1.247772 \\ \hline
+			SSS   & 3672   & 117570.7 & 32.01817  & 5.915565 \\ \hline
+		\end{tabular}
+	\end{table}
+
+	Hasil analisis korelasi pada Gambar 4(a-c) menunjukkan bahwa korelasi negatif terjadi pada pasangan Chl-a - SST dan Chl-a - SSS, yang ditunjukkan dengan kemiringan garis regresi negatif (garis biru). Sebaliknya, pasangan SST-SSS menunjukkan korelasi positif yang ditunjukkan dengan kemiringan garis regresi yang positif. Hubungan korelasi negatif menunjukkan bahwa perbandingan nilai antara Chl-a dan SST atau Chl-a dengan SSS berbanding terbalik sehingga jika nilai Chl-a tinggi pada suatu titik koordinat, SST akan memiliki nilai yang rendah pada titik koordinat tersebut. Sebaliknya korelasi positif menunjukkan bahwa perbandingan nilai antara SST dan SSS berbanding lurus sehingga jika nilai SST tinggi pada suatu titik koordinat, maka akan diimbangi dengan nilai SSS yang tinggi pada titik koordinat tersebut.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=15cm]{contents/final_figure_paper1/gambar_2}
+		\caption{Analisis korelasi untuk (a) Klorofil-a - suhu permukaan laut, (b) Klorofil-a - salinitas permukaan laut, dan (c) Suhu permukaan laut - salinitas permukaan laut}
+		\label{fig:paper1_2}
+	\end{figure}
+	
+	Gambar 5(a) dan 5(b) menunjukkan koefisien korelasi dan RMSE dari pasangan variabel yang dibandingkan. Terlihat bahwa pasangan SST-SSS memiliki korelasi paling kuat, diikuti oleh Chl-a - SSS dan kemudian Chl-a - SST. Menurut Schober [18], Chl-a - SST memiliki korelasi sedang dan negatif, Chl-a - SSS memiliki korelasi sedang dan negatif, dan SST - SSS memiliki korelasi yang kuat dan positif. Jika dihitung koefisien determinan, akan diperoleh
+	
+	\begin{equation*}
+		\begin{aligned}
+			r^2_\text{Chl-a - SST}&=0.2511 \;(25.11\%) \\
+			r^2_\text{Chl-a - SSS}&=0.4598 \;(45.98\%) \\
+			r^2_\text{SST - SSS}&=0.5480 \;(54.8\%) 
+		\end{aligned}	
+	\end{equation*} 
+	 
+	Hal ini menunjukkan bahwa kontribusi atau pengaruh Chl-a terhadap SST sebesar 25.11\%, pengaruh Chl-a terhadap SST sebesar 45.98\%, dan pengaruh SST terhadap SSS sebesar 54.8\%. Selanjutnya, evaluasi variasi antara nilai pasangan variabel ditampilkan menggunakan RMSE (lihat Gambar 5(b)). Hasilnya adalah pasangan SST - SSS memiliki variasi nilai yang lebih kecil, diikuti oleh Chl-a - SST dan kemudian Chl-a - SSS.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=15cm]{contents/final_figure_paper1/gambar_3}
+		\caption{(a) Koefisien korelasi (tanpa unit), (b) Root mean squares (RMSE)}
+		\label{fig:paper1_3}
+	\end{figure}
+
 \subsubsection[Uji Hipotesis dan Analisis Variansi]{Uji Hipotesis dan Analisis Variansi}
 	
 	\lipsum[1]
