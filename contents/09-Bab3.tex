@@ -57,28 +57,65 @@
 	Prosedur penelitian mengikuti diagram alir pada Gambar \ref{fig:flowchart}. Data-data terkait penelitian didownload terlebih dahulu kemudian diinterpolasi untuk memenuhi data yang kosong serta untuk memperoleh resolusi spasial yang lebih detail. Selanjutnya data hasil interpolasi kemudian dibaca dan di konversi ke dalam data matriks pada MATLAB. Hasilnya adalah peta arus, elevasi, temperature, dan data meteorologi. Peta temperature kemudian diobservasi untuk menentukan kedalaman lapisan campuran selama 12 bulan. Sebagai verifikasi atas observasi kedalaman lapisan campuran, akan dilakukan analisis model iklim terhadap data meteorologi (\textit{2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U}, dan \textit{wind stress V}) selama 22 tahun dari tahun 2002 sampai 2021.
 \end{spacing}
 \vspace{-0.5pc}
-\section[Jadwal Penelitian]{Jadwal Penelitian}
-\begin{spacing}{1.5}
-	Jadwal penelitian ditargetkan paling lama 7 bulan dengan rincian kegiatan disusun berdasarkan tabel berikut:
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-	\begin{table}[htp]
-		\centering
-		\caption{Rencana jadwal pelaksanaan penelitian}
-		\label{table:jadwal}
-		\begin{tabular}{|c|c|ccccccc|}
-			\hline
-			\multirow{2}{*}{No.} & \multirow{2}{*}{Kegiatan} & \multicolumn{7}{c|}{Bulan}                                                                                                                            \\ \cline{3-9} 
-			&                   & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{1} &  2 \\ \hline 1
-			& Studi literatur   & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 2
-			& Seminar proposal    & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 3
-			& Pengumpulan data    & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 4
-			& Hasil dan analisis  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 5
-			& Seminar hasil       & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} &  \\ \hline 6
-			& Ujian sidang        & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} &  \\ \hline 7
-			& Publikasi           & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & X  \\ \hline 
-		\end{tabular}
-	\end{table}
 
+\section[Metode Analisis Korelasi]{Metode Analisis Korelasi}
+\begin{spacing}{1.5}
+	Penelitian ini menganalisis tentang hubungan antara Chl-a - SST, Chl-a - SSS dan SST - SSS dengan menggunakan analisis korelasi Pearson (penelitian ini menggunakan data populasi agar kesimpulan yang diperoleh lebih akurat). Perhitungan Root Mean Square Error (RMSE) dilakukan untuk melihat variasi nilai antar kedua variable yang diamati. Tabel Uji hipotesis statistic t (t-statistic or t-value) dan tabel analysis of variance (ANOVA) juga disajikan untuk menguji hipotesis penelitian mengenai pengaruh dari masing-masing variabel dan untuk mengetahui apakah ada perbedaan yang signifikan antara rata-rata hitung (mean) untuk variable yang diamati. Persamaan korelasi dan koefisien korelasi yang digunakan adalah [16], [17],
+	
+	\begin{equation}
+		\begin{aligned}
+			y &= a+rx\\
+			r &= \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i-\bar{x})^2\sum (y_i-\bar{y})^2}}
+		\end{aligned}
+	\end{equation}
+
+	Dengan $\alpha$ adalah konstanta titik potong sumbu-$y$, $r$ adalah kemiringan dari garis regresi (koefisien regresi), $x_i, y_i$ adalah variable yang ingin dibandingkan (dapat berupa Chl-a, SST, dan SSS) dimana $i$ adalah indeks kordinat latitude-longitude yang bersesuaian, $\bar{x},\bar{y}$ adalah rata-rata untuk data populasi. Persamaan untuk RMSE adalah,
+	
+	\begin{equation}
+		\begin{aligned}
+			\text{RMSE}=\sqrt{\frac{1}{N}\sum_{i=0}^{N}(x_i-y_i)^2}.
+		\end{aligned}
+	\end{equation}
+	
+	Persamaan untuk t-statistik adalah,
+	
+	\begin{equation}
+		\begin{aligned}
+			t=\frac{r_{xy}\sqrt{n-2}}{1-r^2_{xy}}
+		\end{aligned}
+	\end{equation}
+	
+	Penarikan kesimpulan untuk t-statistik dalam hal ini adalah apabila $\|t\|\geq t_{\text{tabel}}$ dengan ($\alpha=5\%$) maka ada korelasi antara $x$ dan $y$.
 \end{spacing}
-\vspace{-0.1pc}
+\vspace{-0.5pc}
+
+\section[Metode Analisis Hubungan \textit{Eddies} dan SSH]{Metode Analisis Hubungan \textit{Eddies} dan SSH}
+\begin{spacing}{1.5}
+	Hubungan antara eddies, SSH, dan SST di teliti di Samudera Hindia pada bulan April 2020 dengan menganalisis variable SSH dan arus permukaan bersama dengan data angin untuk mendeteksi lokasi mana saja yang terjadi pusaran serta mengonfirmasi hasil yang diperoleh dengan menggunakan data SST. 
+\end{spacing}
+\vspace{-0.5pc}
+%\section[Jadwal Penelitian]{Jadwal Penelitian}
+%\begin{spacing}{1.5}
+%	Jadwal penelitian ditargetkan paling lama 7 bulan dengan rincian kegiatan disusun berdasarkan tabel berikut:
+%% Please add the following required packages to your document preamble:
+%% \usepackage{multirow}
+%	\begin{table}[htp]
+%		\centering
+%		\caption{Rencana jadwal pelaksanaan penelitian}
+%		\label{table:jadwal}
+%		\begin{tabular}{|c|c|ccccccc|}
+%			\hline
+%			\multirow{2}{*}{No.} & \multirow{2}{*}{Kegiatan} & \multicolumn{7}{c|}{Bulan}                                                                                                                            \\ \cline{3-9} 
+%			&                   & \multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{11} & \multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{1} &  2 \\ \hline 1
+%			& Studi literatur   & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 2
+%			& Seminar proposal    & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 3
+%			& Pengumpulan data    & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 4
+%			& Hasil dan analisis  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  \\ \hline 5
+%			& Seminar hasil       & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & \multicolumn{1}{c|}{} &  \\ \hline 6
+%			& Ujian sidang        & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} &  \\ \hline 7
+%			& Publikasi           & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{X} & X  \\ \hline 
+%		\end{tabular}
+%	\end{table}
+
+%\end{spacing}
+%\vspace{-0.1pc}
