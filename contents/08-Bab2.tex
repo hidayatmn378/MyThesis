@@ -116,7 +116,7 @@
 		\end{aligned}
 	\end{equation}
 	Persamaan \ref{eq:P2} dan \ref{eq:P3} ke persamaan \ref{eq:P1} dapat dituliskan dalam bentuk tensorial sebagai berikut.
-		\begin{equation}\label{eq:tensor1}
+	\begin{equation}\label{eq:tensor1}
 		\begin{aligned}
 			\nabla q &= \frac{1}{e_1}\frac{\partial q}{\partial i}i+\frac{1}{e_2}\frac{\partial q}{\partial j}j+\frac{1}{e_3}\frac{\partial q}{\partial k}k\\
 			\nabla \cdot A &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2a_1)}{\partial i}+\frac{\partial (e_1a_2)}{\partial  j}\right]+\frac{1}{e_3}\frac{\partial a_3}{\partial k}\\
@@ -130,21 +130,48 @@
 	
 	Selanjutnya misalkan kecepatan $U=(u,v,w)=U_h+wk$, vortisitas relatif ($\zeta$), dan divergensi medan kecepatan horizontal ($\chi$) dengan
 	\begin{equation}
-	\begin{aligned}
+		\begin{aligned}
 			\zeta &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2v)}{\partial i}-\frac{\partial (e_1u)}{\partial j}\right]\\
 			\chi &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2u)}{\partial i}+\frac{\partial (e_1v)}{\partial j}\right]
-	\end{aligned}
+		\end{aligned}
 	\end{equation}
 	Mengingat bahwa skala faktor horizontal $e_1$ dan $e_2$ \textit{independent} terhadap $k$ dan $e_3$ adalah fungsi dari variabel tunggal $k$, Suku nonlinear (\textit{nonlinear term} (NLT)) dari persamaan \ref{eq:P2} dan \ref{eq:P3} dapat ditransformasikan sebagai berikut.
-	
-	\begin{equation}
+	\begin{equation*}
 		\begin{aligned}
 			NLT &= \left[(\nabla \times U)\times U+\frac{1}{2}\nabla(U^2)\right]_h \\
 			 &= \binom{\left[\frac{1}{e_3}\frac{\partial u}{\partial k}-\frac{1}{e_1}\frac{\partial w}{\partial i}\right]w-\zeta v}{\zeta v-\left[\frac{1}{e_2}\frac{\partial w}{\partial j}-\frac{1}{e_3}\frac{\partial v}{\partial k}\right]w}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2+w^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2+w^2)}{\partial j}}\\
 			 &=\binom{-\zeta v}{\zeta u}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2)}{\partial j}}+\frac{1}{e_3}\binom{w\frac{\partial u}{\partial k}}{w\frac{\partial v}{\partial k}}-\binom{\frac{w}{e_1}\frac{\partial w}{\partial i}-\frac{1}{2e_1}\frac{\partial w^2}{\partial i}}{\frac{w}{e_2}\frac{\partial w}{\partial j}-\frac{1}{2e_2}\frac{\partial w^2}{\partial j}}
 		\end{aligned}
+	\end{equation*}
+	
+	Karena suku terakhir dari ruas kanan bernilai nol maka persamaan ini menjadi
+	\begin{equation}
+		\begin{aligned}
+			NLT &= \zeta k \times U_h + \frac{1}{2}\nabla_h (U^2_h) + \frac{1}{e_3}w\frac{\partial U_h}{\partial k}
+		\end{aligned}
+		\label{eq:flux_1}
 	\end{equation}
 	
+	Persamaan ini disebut juga sebagai bentuk invarian vektor dari suku adveksi momentum. Dalam bentuk fluks, persamaan \ref{eq:flux_1} (komponen $i$) dapat ditransformasi menjadi
+	\begin{equation*}
+		\begin{aligned}
+			NLT_i &= -\zeta v + \frac{1}{2e_1} \frac{\partial u^2+v^2}{\partial i} + \frac{1}{e_3}w\frac{\partial u}{\partial k} \\
+			&= \frac{1}{e_1 e_2}\left(-v\frac{\partial (e_2 v)}{\partial i} + v\frac{\partial (e_1 u)}{\partial j}\right) + \frac{1}{e_1 e_2}\left(e_2 u\frac{\partial u}{\partial i} + e_2 v\frac{\partial v}{\partial i}\right) + \frac{1}{e_3}\left( w\frac{\partial u}{\partial k}\right)  
+			\\
+			&= \frac{1}{e_1 e_2} \left[-\left(v^2\frac{\partial (e_2)}{\partial i} + e_2v\frac{\partial (v)}{\partial i}\right) + \left(\frac{\partial (e_1uv)}{\partial j} - e_1u\frac{\partial v}{\partial j}\right)\right] +  
+			\\
+			& \frac{1}{e_1 e_2} \left[\left(\frac{\partial (e_2uu)}{\partial i} - u\frac{\partial (e_2u)}{\partial i}\right) + e_2v\frac{\partial v}{\partial i} \right] + \frac{1}{e_3}\left(\frac{\partial (wu)}{\partial k} - u\frac{\partial (w)}{\partial k}\right) 
+			\\
+			&= \frac{1}{e_1e_2}\left(\frac{\partial (e_2uu)}{\partial i} + \frac{\partial (e_1uv)}{\partial j}\right)+
+			\frac{1}{e_3}\frac{\partial (wu)}{\partial k}+\frac{1}{e_1e_2}\left[-u\left(\frac{\partial (e_1v)}{\partial j}-v\frac{\partial e_1}{\partial j}\right)\right] 
+			\\ 
+			& + \frac{1}{e_1e_2}\left(-u\frac{\partial (e_2u)}{\partial i}\right) - \frac{1}{e_3}\frac{\partial (w)}{\partial k}u + \frac{1}{e_1e_2}\left(-v^2\frac{\partial e_2}{\partial i}\right)  	
+			\\
+			&= \nabla \cdot (Uu)-(\nabla \cdot U)u + \frac{1}{e_1e_2}\left(-v^2\frac{\partial e_2}{\partial i}+uv\frac{\partial e_1}{\partial j}\right)  
+		\end{aligned}
+	\end{equation*}
+	
+	Karena hipotesis tak termampatkan maka $\nabla \cdot U = 0$
 \end{spacing}
 \vspace{-0.1pc}
 \section[Model Iklim]{Model Iklim}
