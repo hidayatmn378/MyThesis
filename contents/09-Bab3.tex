@@ -83,10 +83,34 @@
 \end{spacing}	
 \vspace{-0.5pc}
 \section[Prosedur Penelitian]{Prosedur Penelitian}
+\subsection[Penentuan MLD]{Penentuan MLD}
 \begin{spacing}{1.5}
+	MLD ditentukan dengan menggunakan data temperature HYCOM dari hasil penggambaran \textit{cross-section} pada bagian selatan BoB, di latitude 9$^\circ$C, dan bagian utara BoB, di latitude 19$^\circ$C. \textit{Cross-section} temperature menggunakan kriteria beda hingga, khususnya kriteria nilai \textit{threshold} temperature, $\Delta t=0.1^\circ$C dengan referensi dari permukaan laut \shortcite{Sprintall1999}. Cara yang digunakan untuk mengestimasi ketebalan MLD adalah dengan cara melihat perubahan temperature pada setiap kedalaman. Gambar \textit{cross-section} temperature diplot terlebih dahulu tanpa kontur menggunakan kriteria \textit{threshold} 0.1$^\circ$C untuk menghasilkan gambar dengan warna biru, hijau, dan kuning yang berbeda yang merupakan representasi dari perubahan temperature. Gambar kontur kemudian ditambahkan untuk melihat secara jelas nilai temperature berdasarkan interval 1$^\circ$C. Indikator nilai ketebalan MLD berdasarkan perubahan warna dan temperature yang terjadi pertama kali dari permukaan laut pada gambar.
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=7cm]{contents/flowchart.png}
+		\includegraphics[width=14cm]{contents/Flowchart_1.png}
+		\caption{Diagram alir penentuan MLD.}
+		\label{fig:flowchart_1}
+	\end{figure}
+\subsection[Model Iklim (\textit{Seasonal Model})]{Model Iklim (\textit{Seasonal Model})}
+	Data meteorologi NCEP/NCAR diinterpolasi dengan menggunakan metode yang telah dijelaskan sebelumnya kemudian dianalisis menggunakan sinyal musiman dengan persamaan sebagai berikut (Haridhi et al., 2016):
+	\begin{equation}\label{eq:nrl}
+		y = b_1 + b_2(\sin(b_3x+b_4))
+	\end{equation}
+	dengan $b_1$ adalah konstanta pergeseran vertikal, $b_2$ adalah amplitudo gelombang sinus, $b_3$ adalah frekuensi, x adalah variabel waktu, dan $b_4$ adalah fase.
+	
+	Rumus ini tidak hanya digunakan untuk menjelaskan pola musiman, tetapi rumus ini juga dapat memprediksi parameter dan peristiwa MLD berdasarkan keteraturannya \shortcite{Ikhwan2022}. Pemilihan musim dengan formula ini mempengaruhi kesesuaian musim yang terjadi. Di Laut Andaman dan Selat Malaka, monsun yang terjadi adalah monsun timur laut (NEM) dan monsun barat daya (SWM), sehingga asumsi monsun ini juga dapat terjadi di BoB \shortcite{Rizal2012a}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=12cm]{contents/Flowchart_2.png}
+		\caption{Diagram alir \textit{seasonal model}.}
+		\label{fig:flowchart_2}
+	\end{figure}
+\subsection[Alur Penelitian]{Alur Penelitian}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=10cm]{contents/Flowchart_Diagram.png}
 		\caption{Diagram alir penelitian}
 		\label{fig:flowchart}
 	\end{figure}
