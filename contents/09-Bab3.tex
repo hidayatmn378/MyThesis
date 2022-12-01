@@ -46,6 +46,42 @@
 	Data meteorologi yang digunakan adalah data reanalysis NCEP/NCAR per 6 jam \href{https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html}{(https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html)} selama 20 tahun dari tahun 2002 sampai 2021 untuk 6 parameter yaitu: \textit{2m air temperature, 2m specific humidity, convective precipitation rate, sea level pressure, wind stress U}, dan \textit{wind stress V}.
 \end{spacing}
 \vspace{-0.5pc}
+\section[Metode Interpolasi]{Metode Interpolasi}
+\begin{spacing}{1.5}
+	Metode interpolasi yang digunakan adalah interpolasi linear. Misalkan terdapat fungsi $f$ yang tidak diketahui. Akan dicari nilai titik $P=(x,y)$ dengan menggunakan interpolasi linear. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=6cm]{contents/BilinearInterpolationV2}
+		\caption{Titik-titik yang akan diinterpolasi.} 
+		\label{fig:interp}
+		\medspace
+		\small
+		Titik $Q_{11},Q_{12},Q_{21}$ dan $Q_{22}$ (titik merah) adalah titik yang diketahui dan titik $P$ (titik hijau) adalah titik yang akan diinterpolasi.
+	\end{figure}
+	Asumsikan bahwa nilai 4 titik diketahui, titik $Q_{11}=(x_1,y_1),Q_{12}=(x_1,y_2),Q_{21}=(x_2,y_1)$ dan $Q_{22}=(x_2,y_2)$. Persamaan untuk fungsi interpolasi linear dalam arah sumbu-x diberikan oleh
+	\begin{equation*}
+		\begin{aligned}
+			f(x,y_1)&=\frac{x_2-x}{x_2-x_1}f(Q_{11})+\frac{x-x_1}{x_2-x_1}f(Q_{21}),\\
+			f(x,y_2)&=\frac{x_2-x}{x_2-x_1}f(Q_{12})+\frac{x-x_1}{x_2-x_1}f(Q_{22}).
+		\end{aligned}
+	\end{equation*}
+	Interpolasi untuk arah sumbu-y ketika dilanjutkan akan memberikan persamaan yang lengkap sebagai berikut
+	\begin{equation*}
+		 \resizebox{\textwidth}{!}{% 
+			$
+		\begin{aligned}
+			f(x,y)&=\frac{y_2-y}{y_2-y_1}f(x,y_1)+\frac{y-y_1}{y_2-y_1}f(x,y_2)\\
+			&=\frac{y_2-y}{y_2-y_1}\left(\frac{x_2-x}{x_2-x_1}f(Q_{11})+\frac{x-x_1}{x_2-x_1}f(Q_{21})\right)+\frac{y-y_1}{y_2-y_1}\left(\frac{x_2-x}{x_2-x_1}f(Q_{12})+\frac{x-x_1}{x_2-x_1}f(Q_{22})\right)\\
+			&=\frac{1}{(x_2-x_1)(y_2-y_1)}(f(Q_{11})(x_2-x)(y_2-y)+f(Q_{21})(x-x_1)(y_2-y)+f(Q_{12})(x_2-x)(y-y_1)\\
+			&+f(Q_{22})(x-x_1)(y-y_1))\\
+			&=\frac{1}{(x_2-x_1)(y_2-y_1)}[x_2-x \quad x-x_1]\binom{f(Q_{11})\quad f(Q_{12})}{f(Q_{21})\quad f(Q_{22})}\binom{y_2-y}{y-y_1}.%
+		\end{aligned}
+		$
+	}
+	\end{equation*}
+		Dengan cara yang sama, interpolasi untuk parameter meteorologi dapat dilakukan dengan mengganti nilai $x,y,$ dan $f$ di atas dengan nilai longitude, latitude, dan nilai untuk parameter meteorologi yang bersesuaian.
+\end{spacing}	
+\vspace{-0.5pc}
 \section[Prosedur Penelitian]{Prosedur Penelitian}
 \begin{spacing}{1.5}
 	\begin{figure}[H]
