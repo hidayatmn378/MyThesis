@@ -3,7 +3,7 @@
 %\section[State of the Art]{State of the Art}
 \begin{spacing}{1.5}
 	
-	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan persamaan Navier-Stokes dalam pemodelan laut, serta grid C Arakawa. Selanjutnya, akan dibahas mengenai model iklim yang digunakan sebagai verifikasi dan terakhir tentang kedalaman lapisan campuran. Meskipun demikian, karena fokus dari penelitian ini adalah observasi kedalaman lapisan campuran berdasarkan data output OGCM (\textit{Ocean General Circulation Model}) dan hubungan serta pengaruh parameter meteorologi terhadap lapisan campuran, maka persamaan Navier-Stokes tidak akan direview secara detail dan hanya akan dirujuk sebagaimana mestinya.
+	Bab ini menjelaskan lebih detail mengenai pustaka relevan dan tinjauan teori dalam penelitian ini. Hal ini bertujuan untuk mereview, mengupdate, mengkritik dan mensintesis literatur, melakukan meta-analisis literatur, melakukan konsepsi ulang dari topik yang direview, dan menjawab pertanyaan spesifik penelitian dari topik yang telah direview dalam literatur \shortcite{Torraco2016}. Struktur pembahasan studi relevan dan tinjauan teori selanjutnya dibagi dalam beberapa hal: pertama, akan dibahas mengenai persamaan gerak fluida dan persamaan Navier-Stokes dalam pemodelan laut, serta grid C Arakawa. Selanjutnya, akan dibahas mengenai model iklim yang digunakan dan terakhir tentang kedalaman lapisan campuran. Meskipun demikian, karena fokus dari penelitian ini adalah observasi kedalaman lapisan campuran berdasarkan data output OGCM (\textit{Ocean General Circulation Model}) dan hubungan serta pengaruh parameter meteorologi terhadap lapisan campuran, maka persamaan Navier-Stokes tidak akan direview secara detail dan hanya akan dirujuk sebagaimana mestinya.
 	
 \end{spacing}
 \vspace{-0.1pc}
@@ -356,7 +356,12 @@
 	Secara umum, temperatur laut berada pada kisaran $-2^\circ$C sampai $30^\circ$C. Air terhangat cenderung berada pada air permukaan di daerah lintang rendah, sedangkan air permukaan di daerah kutub jelas jauh lebih dingin. Pada garis lintang yang setara, air di sisi timur cekungan laut lebih dingin daripada air di sisi barat. Hal ini disebabkan oleh pola arus permukaan. Meskipun air permukaan bisa sangat hangat, sebagian besar air di lautan lebih dalam, airnya lebih dingin, sehingga temperatur rata-rata seluruh lautan adalah sekitar $4^\circ$C.
 	
 	Gambar \ref{fig:mld_theory}a menunjukkan profil temperatur yang khas untuk lautan terbuka pada daerah lintang tengah. Air yang hangat berada pada permukaan dikarenakan pancaran sinar matahari dan hanya dapat menembus kedalaman $\leq 1000$m \shortcite{webb2021introduction}. Karena air permukaan lebih hangat, kepadatannya juga lebih rendah dibandingkan air yang lebih dalam, sehingga air hangat ini tetap berada di permukaan dan dapat menjadi lebih hangat karena sinar matahari. 
-	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=15cm]{contents/MLD_Illustration}
+		\caption{Diagram skematik yang menunjukkan interaksi yang terjadi pada antarmuka udara-laut yang melibatkan parameter-parameter meteorologi dan kedalaman lapisan campuran.}
+		\label{fig:mld_illustration}
+	\end{figure}
 	$\textbf{\textit{Mixed layer depth} (MLD)}$ dapat ditentukan dengan menggunakan temperatur, salinitas, ataupun densitas. MLD yang berkaitan dengan temperatur dapat berupa temperatur yang cukup konstan pada kedalaman $100 - 200$m. \textit{Mixed layer} atau lapisan campuran adalah hasil dari pengaruh angin permukaan, gelombang, dan arus yang mencampur air bagian atas dan mendistribusikan panas ke seluruh lapisan ini. Di bawah lapisan campuran terdapat penurunan temperatur yang cepat sejalan dengan peningkatan kedalaman lautan. Lapisan ini disebut sebagai $\textbf{\textit{thermocline}}$. Di bawah lapisan termoklin, temperatur laut dalam cukup konstan sekitar $2^\circ$C yang terus turun hingga ke dasar laut. Ada sedikit perubahan temperatur di laut dalam, karena jauh dari sumber panas yang signifikan, menjadikannya salah satu daerah yang paling stabil secara termal di bumi.
 	\begin{figure}[H]
 		\centering
