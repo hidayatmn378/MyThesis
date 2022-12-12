@@ -10,48 +10,47 @@
 \section[Persamaan Gerak Fluida]{Persamaan Gerak Fluida}
 \begin{spacing}{1.5}
 	
-	Persamaan matematika yang mengatur aliran viskoelastik fluida berasal dari persamaan-persamaan hukum konservasi fisika yaitu konservasi massa, momentum dan persamaan konstitutif reologi \shortcite{Alves2021}. Penjabaran dari hukum-hukum tersebut menentukan bagaimana suatu persamaan model hidrodinamika dibuat. Salah satu persamaan fluida yang paling terkenal adalah persamaan Navier-Stokes yang terdiri dari persamaan momentum, persamaan kontinuitas, dan persamaan konservasi densitas \shortcite{Haditiar2020}. Persamaan Navier-Stokes digunakan untuk menggambarkan fluida yang mengalir dan dianggap memiliki pergerakan yang kontinu. Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas \shortcite{Rafiq2019,Das2018,Khan2019}. Sebuah partikel fluida diilustrasikan pada Gambar \ref{fig:cube}a, dan \ref{fig:cube}b. Komponen fluida seperti tekanan $p$, kecepatan $u$, dan densitas $\rho$ terletak pada pusat partikel yang bergantung terhadap waktu $(t)$ dan ruang $(x,y,z)$. Sehingga, komponen-komponen tersebut dapat ditulis dalam fungsi $p(x,y,z,t), u(x,y,z,t)$  dan $\rho(x,y,z,t)$. 
+	Persamaan matematika yang mengatur aliran viskoelastik fluida berasal dari persamaan-persamaan hukum konservasi fisika yaitu konservasi massa, momentum dan persamaan konstitutif reologi \shortcite{Alves2021}. Penjabaran dari hukum-hukum tersebut menentukan bagaimana suatu persamaan model hidrodinamika dibuat. Salah satu persamaan fluida yang paling terkenal adalah persamaan Navier-Stokes yang terdiri dari persamaan momentum, persamaan kontinuitas, dan persamaan konservasi densitas \shortcite{Haditiar2020}. Persamaan Navier-Stokes digunakan untuk menggambarkan fluida yang mengalir dan dianggap memiliki pergerakan yang kontinu. Diketahui bahwa hasil pengamatan dari sebuah partikel fluida yang mengalir memiliki sifat-sifat fluida secara umum yaitu kecepatan, temperatur, tekanan dan densitas \shortcite{Rafiq2019,Das2018,Khan2019}. Sebuah partikel fluida diilustrasikan pada Gambar \ref{fig:cube}a, dan \ref{fig:cube}b. Komponen fluida seperti tekanan ($p$), kecepatan ($u$), dan densitas ($\rho$) terletak pada pusat partikel yang bergantung terhadap waktu $(t)$ dan ruang $(x,y,z)$, sehingga komponen-komponen tersebut dapat ditulis dalam bentuk fungsi tekanan $p(x,y,z,t)$, fungsi kecepatan $u(x,y,z,t)$  dan fungsi densitas $\rho(x,y,z,t)$. 
 	
-	Asumsikan bahwa partikel fluida yang diobservasi sangat kecil sehingga sifat fluida pada permukaan kubus dapat diekspresikan secara akurat dengan menggunakan dua suku pertama dari ekspansi deret Taylor, 
+	Misalkan ke-enam sisi kubus sebagai $N, S, E, W, I$, dan $B$ seperti yang ditunjukkan dalam Gambar \ref{fig:cube}a. Selanjutnya asumsikan bahwa partikel fluida yang diobservasi sangat kecil sehingga sifat fluida pada permukaan kubus dapat diekspresikan secara akurat dengan menggunakan rata-rata dua suku pertama dari ekspansi deret Taylor, 
 	\begin{equation*}
-		\sum_{n=0}^{\infty}\frac{f^{n}(a)}{n!}(x-a)^n = f(a)+\frac{f'(a)}{1!}(x-a)+\dots
-	\end{equation*} 
-	Sebagai contoh, tekanan pada muka $W$ dan $E$, keduanya memiliki jarak $\frac{1}{2}\delta x$ dari posisi partikel di tengah sehingga diperoleh bentuk ekspresi,
-	\begin{equation*}
-		p-\frac{\partial p}{\partial x}\frac{1}{2}\delta x \quad \text{dan} \quad
-		p+\frac{\partial p}{\partial x}\frac{1}{2}\delta x.
+		\sum_{n=0}^{\infty}\frac{f^{n}(a)}{n!}(x-a)^n = f(a)+\frac{f'(a)}{1!}(x-a)+\dots.
 	\end{equation*}
-	Hal yang sama dapat dilakukan untuk variabel yang lainnya.
+ 
+	Perhatikan bahwa $f$ di atas dapat berupa $p(x,y,z,t), u(x,y,z,t)$ atau $\rho(x,y,z,t)$. Sebagai contoh, densitas pada sisi kubus $W$ dan $E$. Keduanya memiliki jarak $\frac{1}{2}\delta x$ dari posisi partikel yang berada di tengah, sehingga diperoleh bentuk ekspresi
+	\begin{equation*}
+		\rho-\frac{\partial \rho}{\partial x}\frac{1}{2}\delta x \quad \text{dan} \quad
+		\rho+\frac{\partial \rho}{\partial x}\frac{1}{2}\delta x.
+	\end{equation*}
+	Dalam hal ini, $\rho$ adalah densitas, $\frac{\partial \rho}{\partial x}$ adalah laju perubahan densitas terhadap posisi $x$, dan $\delta x$ adalah panjang rusuk kubus.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=16cm]{contents/cube}
-		\caption{(a) Ilustrasi partikel sebagai sifat fisis fluida, (b) Aliran massa jenis masuk dan keluar. Gambar direproduksi dari \protect\shortcite{versteeg2007introduction}}
+		\caption{(a) Ilustrasi partikel sebagai sifat fisis fluida, (b) Aliran massa jenis masuk dan keluar. Gambar direproduksi dari \protect\shortcite{versteeg2007introduction}.}
 		\label{fig:cube}
-		\medspace
-		\small
-		Massa jenis dari partikel $\rho(x,y,z,t)$ pada gambar bagian (a) dapat diterjemahkan sebagai aliran yang masuk dan keluar. Pada gambar bagian (b), arah aliran massa jenis pada partikel pusat merupakan jumlahan dari aliran massa jenis masuk dan keluar. Dengan cara yang sama, dapat juga dilakukan untuk tekanan dan kecepatan. 
 	\end{figure}
-	
+	Densitas atau massa jenis dari partikel $\rho(x,y,z,t)$ pada Gambar \ref{fig:cube}(a) dapat diterjemahkan sebagai aliran yang masuk dan keluar. Pada Gambar \ref{fig:cube}(b), arah aliran massa jenis pada partikel pusat merupakan jumlahan dari aliran massa jenis masuk dan keluar. Dengan cara yang sama dapat juga dilakukan untuk tekanan dan kecepatan. 
 \end{spacing}
 \vspace{-1pc}
 \section[Persamaan Primitif]{Persamaan Primitif}
 \begin{spacing}{1.5}
 	\par Model sirkulasi laut atau \textit{Ocean General Circulation Models} (OGCM) menggunakan persamaan Navier-Stokes untuk memodelkan fenomena fisis yang terjadi di lautan. Lautan adalah fluida yang dapat dijelaskan dengan baik dengan pendekatan persamaan-persamaan primitif, yaitu persamaan Navier-Stokes bersama dengan persamaan keadaan nonlinier yang menggabungkan dua variabel (temperatur dan salinitas) dengan kecepatan fluida, ditambah dengan pertimbangan beberapa asumsi dan hipotesis \shortcite{madec_gurvan_2022_6334656}.
 	
-	Beberapa hipotesis yang digunakan adalah hipotesis Boussinesq, hipotesis hidrostatik, dan hipotesis tak termampatkan (\textit{incompressibility}). Berdasarkan hipotesis Boussinesq, variasi densitas diabaikan kecuali dalam kontribusinya terhadap gaya apung sehingga 
+	Beberapa hipotesis yang digunakan dalam persamaan Navier-Stokes adalah hipotesis Boussinesq, hipotesis hidrostatik, dan hipotesis tak termampatkan (\textit{incompressibility}). Berdasarkan hipotesis Boussinesq, variasi densitas diabaikan kecuali dalam kontribusinya terhadap gaya apung sehingga 
 	\begin{equation}\label{eq:P1}
-		\rho = \rho(T,S,p).
+		\rho = \rho(T,S,p)
 	\end{equation}
-	Untuk hipotesis hidrostatik, persamaan momentum vertikal direduksi menjadi keseimbangan antara gradien tekanan vertikal dan gaya apung (ini menghilangkan proses konvektif dari persamaan Navier-Stokes awal dan proses konvektif harus diparameterisasi sebagai gantinya)
+	dengan $\rho$ adalah densitas in situ, $T$ adalah potensial temperature, $S$ adalah salinitas, dan $p$ adalah tekanan.
+	Untuk hipotesis hidrostatik, persamaan momentum vertikal direduksi menjadi keseimbangan antara gradien tekanan vertikal dan gaya apung
 	\begin{equation}
 		\frac{\partial p}{\partial z} = -\rho g.
 	\end{equation}
-	Selanjutnya untuk hipotesis tak termampatkan, persamaan 3-D divergensi untuk vektor kecepatan $U = (u,v,w)$ (dalam koordinat kartesius $(x,y,z)$) diasumsikan menjadi 0, diperoleh
+	Untuk hipotesis tak termampatkan, persamaan 3-D divergensi untuk vektor kecepatan $U = (u,v,w)$ (dalam koordinat kartesius $(x,y,z)$) diasumsikan menjadi 0, diperoleh
 	\begin{equation}
 		\nabla \;.\; U =\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0.
 	\end{equation}	
 
-	Karena gaya gravitasi dominan dalam persamaan gerak skala besar, maka berguna untuk memilih himpunan ortogonal dari vektor satuan $(i,j,k)$ yang dihubungkan dengan Bumi sedemikian rupa sehingga $k$ adalah vektor lokal ke atas dan $(i,j)$ adalah 2 vektor ortogonal terhadap $k$ - dalam hal ini bersinggungan dengan permukaan geopotensial. Selanjutnya definisikan beberapa variabel berikut, $U$ adalah vektor kecepatan dengan $U = U_h + wk$ ($h$ adalah notasi vektor horizontal lokal di atas bidang $(i,j)$), $T$ adalah temperatur potensial, $S$ adalah salinitas, $\rho$ adalah densitas in situ. Bentuk vektor invarian dari persamaan primitif dalam sistem vektor $(i, j, k)$ diberikan oleh persamaan berikut \shortcite{madec_gurvan_2022_6334656},
+	Selanjutnya misalkan bahwa $U$ adalah vektor kecepatan dengan $U = U_h + wk$ ($h$ adalah notasi vektor horizontal lokal di atas bidang $(i,j)$), $T$ adalah temperatur potensial, $S$ adalah salinitas, $\rho$ adalah densitas in situ. Bentuk vektor invarian dari persamaan primitif dalam sistem vektor $(i, j, k)$ diberikan oleh persamaan berikut \shortcite{madec_gurvan_2022_6334656},
 	
 	- Persamaan kesetimbangan momentum
 	\begin{equation}\label{eq:P2}
@@ -64,7 +63,7 @@
 	\begin{equation}\label{eq:P3}
 		\begin{aligned}
 			\frac{\partial T}{\partial t} &= - \nabla \; . \; (T\;U)  + D^U + F^U \\
-			\frac{\partial S}{\partial t} &= - \nabla \; . \; (S\;U)  + D^U + F^U
+			\frac{\partial S}{\partial t} &= - \nabla \; . \; (S\;U)  + D^U + F^U.
 		\end{aligned}
 	\end{equation}
 	Dengan $\nabla$ operator vektor turunan yang diperumum dalam arah $(i,j,k)$, $t$ adalah waktu, $z$ adalah koordinat vertikal, $\rho$ adalah densitas in situ dalam persamaan keadaan hipotesis Boussinesq, $\rho_o$ adalah densitas referensi, $p$ adalah tekanan, $f = 2\Omega\; . \;k$ adalah percepatan Coriolis (dengan $\Omega$ adalah vector kecepatan sudut bumi), $g$ adalah percepatan gravitasi. $D^U, D^T$, dan $D^S$ adalah parameterisasi dari fisika skala kecil  untuk momentum, temperatur, dan salinitas, dan $F^U,F^T$, dan $F^S$ adalah suku gaya permukaan.
@@ -132,23 +131,23 @@
 	\begin{equation}
 		\begin{aligned}
 			\zeta &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2v)}{\partial i}-\frac{\partial (e_1u)}{\partial j}\right]\\
-			\chi &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2u)}{\partial i}+\frac{\partial (e_1v)}{\partial j}\right]
+			\chi &= \frac{1}{e_1e_2}\left[\frac{\partial (e_2u)}{\partial i}+\frac{\partial (e_1v)}{\partial j}\right].
 		\end{aligned}
 	\label{eq:divhor}
 	\end{equation}
-	Mengingat bahwa skala faktor horizontal $e_1$ dan $e_2$ \textit{independent} terhadap $k$ dan $e_3$ adalah fungsi dari variabel tunggal $k$, Suku nonlinear (\textit{nonlinear term} (NLT)) dari persamaan \ref{eq:P2} dan \ref{eq:P3} dapat ditransformasikan sebagai berikut.
+	Karena skala faktor horizontal $e_1$ dan $e_2$ \textit{independent} terhadap $k$ dan $e_3$ adalah fungsi dari variabel tunggal $k$ maka suku nonlinear (\textit{nonlinear term} (NLT)) dari Persamaan \ref{eq:P2} dapat ditransformasikan sebagai berikut.
 	\begin{equation*}
 		\begin{aligned}
 			NLT &= \left[(\nabla \times U)\times U+\frac{1}{2}\nabla(U^2)\right]_h \\
 			 &= \binom{\left[\frac{1}{e_3}\frac{\partial u}{\partial k}-\frac{1}{e_1}\frac{\partial w}{\partial i}\right]w-\zeta v}{\zeta v-\left[\frac{1}{e_2}\frac{\partial w}{\partial j}-\frac{1}{e_3}\frac{\partial v}{\partial k}\right]w}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2+w^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2+w^2)}{\partial j}}\\
-			 &=\binom{-\zeta v}{\zeta u}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2)}{\partial j}}+\frac{1}{e_3}\binom{w\frac{\partial u}{\partial k}}{w\frac{\partial v}{\partial k}}-\binom{\frac{w}{e_1}\frac{\partial w}{\partial i}-\frac{1}{2e_1}\frac{\partial w^2}{\partial i}}{\frac{w}{e_2}\frac{\partial w}{\partial j}-\frac{1}{2e_2}\frac{\partial w^2}{\partial j}}
+			 &=\binom{-\zeta v}{\zeta u}+\frac{1}{2}\binom{\frac{1}{e_1}\frac{\partial (u^2+v^2)}{\partial i}}{\frac{1}{e_2}\frac{\partial (u^2+v^2)}{\partial j}}+\frac{1}{e_3}\binom{w\frac{\partial u}{\partial k}}{w\frac{\partial v}{\partial k}}-\binom{\frac{w}{e_1}\frac{\partial w}{\partial i}-\frac{1}{2e_1}\frac{\partial w^2}{\partial i}}{\frac{w}{e_2}\frac{\partial w}{\partial j}-\frac{1}{2e_2}\frac{\partial w^2}{\partial j}}.
 		\end{aligned}
 	\end{equation*}
 	
 	Karena suku terakhir dari ruas kanan bernilai nol maka persamaan ini menjadi
 	\begin{equation}
 		\begin{aligned}
-			NLT &= \zeta k \times U_h + \frac{1}{2}\nabla_h (U^2_h) + \frac{1}{e_3}w\frac{\partial U_h}{\partial k}
+			NLT &= \zeta k \times U_h + \frac{1}{2}\nabla_h (U^2_h) + \frac{1}{e_3}w\frac{\partial U_h}{\partial k}.
 		\end{aligned}
 		\label{eq:flux_1}
 	\end{equation}
@@ -170,7 +169,7 @@
 			\\ 
 			& + \frac{1}{e_1e_2}\left(-u\frac{\partial (e_2u)}{\partial i}\right) - \frac{1}{e_3}\frac{\partial (w)}{\partial k}u + \frac{1}{e_1e_2}\left(-v^2\frac{\partial e_2}{\partial i}\right)  	
 			\\
-			&= \nabla \cdot (Uu)-(\nabla \cdot U)u + \frac{1}{e_1e_2}\left(-v^2\frac{\partial e_2}{\partial i}+uv\frac{\partial e_1}{\partial j}\right)%  
+			&= \nabla \cdot (Uu)-(\nabla \cdot U)u + \frac{1}{e_1e_2}\left(-v^2\frac{\partial e_2}{\partial i}+uv\frac{\partial e_1}{\partial j}\right).%  
 		\end{aligned}
 				$
 		}
@@ -179,21 +178,20 @@
 	Karena hipotesis tak termampatkan maka $\nabla \cdot U = 0$ sehingga
 	\begin{equation}
 		\begin{aligned}
-			NLT_i &= \nabla \cdot (Uu) +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right)(-v)
+			NLT_i &= \nabla \cdot (Uu) +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right)(-v).
 		\end{aligned}
 	\end{equation}
-	
 	Terakhir, bentuk fluks dari suku adveksi momentum menjadi
 	\begin{equation}
 		\begin{aligned}
-			NLT &= \nabla \cdot \binom{Uu}{Uv} +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right)k \times U_h
+			NLT &= \nabla \cdot \binom{Uu}{Uv} +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right)k \times U_h.
 		\end{aligned}
 	\end{equation}
 
 	Persamaan di atas memiliki 2 bagian, bagian pertama adalah divergensi fluks momentum dan bagian kedua adalah suku metrik dan merupakan modifikasi parameter Coriolis dari sistem koordinat lengkung.
 	\begin{equation*}
 		\begin{aligned}
-			f \rightarrow f +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right)
+			f \rightarrow f +  \frac{1}{e_1e_2}\left(v\frac{\partial e_2}{\partial i}-u\frac{\partial e_1}{\partial j}\right).
 		\end{aligned}
 	\end{equation*}
 
@@ -205,7 +203,7 @@
 			$
 		\begin{aligned}
 			\frac{\partial u}{\partial t} &= +(\zeta +f)v -  \frac{1}{2e_1}\frac{\partial (u^2+v^2)}{\partial i}-\frac{1}{e_3}w\frac{\partial u}{\partial k} - \frac{1}{e_1}\frac{\partial}{\partial i}\left(\frac{p_s+p_h}{\rho_o}\right)+D^U_u+F^U_u  \\
-			\frac{\partial v}{\partial t} &= -(\zeta +f)u -  \frac{1}{2e_2}\frac{\partial (u^2+v^2)}{\partial j}-\frac{1}{e_3}w\frac{\partial u}{\partial k} - \frac{1}{e_2}\frac{\partial}{\partial j}\left(\frac{p_s+p_h}{\rho_o}\right)+D^U_v+F^U_v%
+			\frac{\partial v}{\partial t} &= -(\zeta +f)u -  \frac{1}{2e_2}\frac{\partial (u^2+v^2)}{\partial j}-\frac{1}{e_3}w\frac{\partial u}{\partial k} - \frac{1}{e_2}\frac{\partial}{\partial j}\left(\frac{p_s+p_h}{\rho_o}\right)+D^U_v+F^U_v.%
 		\end{aligned}
 			$
 		}
@@ -230,14 +228,14 @@
 	dengan $\zeta$ adalah kecepatan vortisitas dari Persamaan \ref{eq:divhor} dan $p_s$. Persamaan untuk tekanan permukaan diberikan oleh
 	\begin{equation*}
 		\begin{aligned}
-			p_s=\rho g \eta
+			p_s=\rho g \eta.
 		\end{aligned}
 	\end{equation*}
 	
 	Kecepatan vertikal dan tekanan hidrostatik diberikan oleh persamaan
 	\begin{equation*}
 		\begin{aligned}
-			\frac{\partial w}{\partial k}=-\chi e_3, \quad \frac{\partial p_h}{\partial k}=-\rho ge_3
+			\frac{\partial w}{\partial k}=-\chi e_3, \quad \frac{\partial p_h}{\partial k}=-\rho ge_3.
 		\end{aligned}
 	\end{equation*}
 	Persamaan pelacak (\textit{tracer equations}) diberikan oleh persamaan
@@ -254,13 +252,13 @@
 	Untuk kasus khusus $k=z$ dan $e_3=1$ pada bentuk formalisme tensorial sebelumnya, diperkenalkan koordinat vertikal $s=s(i,j,k,t)$. Definisikan faktor skala vertikal dengan $e_3=\partial_sz$ ($e_3$ adalah fungsi dari ($i,j,k,t$)) dan kemiringan dalam arah $(i,j)$ antara permukaan $s$ dan $z$ sehingga
 	\begin{equation}
 		\begin{aligned}
-			\sigma_1=\frac{1}{e_1}\frac{\partial z}{\partial i}|_s \quad \text{dan}\quad \sigma_2=\frac{1}{e_2}\frac{\partial z}{\partial j}|_s
+			\sigma_1=\frac{1}{e_1}\frac{\partial z}{\partial i}|_s \quad \text{dan}\quad \sigma_2=\frac{1}{e_2}\frac{\partial z}{\partial j}|_s.
 		\end{aligned}
 	\end{equation}
 	Misalkan $\omega$ sebagai komponen kecepatan permukaan, yang didefinisikan sebagai kecepatan relatif terhadap permukaan$-s$ yang bergerak dan normal
 	\begin{equation*}
 		\begin{aligned}
-			\omega = w-\frac{\partial z}{\partial t}|_s - \sigma_1 u-\sigma_2v
+			\omega = w-\frac{\partial z}{\partial t}|_s - \sigma_1 u-\sigma_2v.
 		\end{aligned}
 	\end{equation*}
 	Persamaan \ref{eq:P2} dan \ref{eq:P3} dalam koordinat-s dapat dituliskan sebagai berikut.
@@ -270,7 +268,7 @@
 			$
 			\begin{aligned}
 				\frac{\partial u}{\partial t} &= +(\zeta +f)v -  \frac{1}{2e_1}\frac{\partial (u^2+v^2)}{\partial i}-\frac{1}{e_3}\omega\frac{\partial u}{\partial k} - \frac{1}{e_1}\frac{\partial}{\partial i}\left(\frac{p_s+p_h}{\rho_o}\right)-g\frac{\rho}{\rho_o}\sigma_1+D^U_u+F^U_u  \\
-				\frac{\partial v}{\partial t} &= -(\zeta +f)u -  \frac{1}{2e_2}\frac{\partial (u^2+v^2)}{\partial j}-\frac{1}{e_3}\omega\frac{\partial u}{\partial k} - \frac{1}{e_2}\frac{\partial}{\partial j}\left(\frac{p_s+p_h}{\rho_o}\right)-g\frac{\rho}{\rho_o}\sigma_2+D^U_v+F^U_v%
+				\frac{\partial v}{\partial t} &= -(\zeta +f)u -  \frac{1}{2e_2}\frac{\partial (u^2+v^2)}{\partial j}-\frac{1}{e_3}\omega\frac{\partial u}{\partial k} - \frac{1}{e_2}\frac{\partial}{\partial j}\left(\frac{p_s+p_h}{\rho_o}\right)-g\frac{\rho}{\rho_o}\sigma_2+D^U_v+F^U_v.%
 			\end{aligned}
 			$
 		}
@@ -294,7 +292,7 @@
 	dengan $\zeta$ kecepatan relatif, gradien tekanan permukaan dan tekanan hidrostatik memiliki ekspresi yang sama dengan koordinat-z, $\omega$ disajikan dengan persamaan kontinuitas:
 	\begin{equation*}
 		\begin{aligned}
-			\frac{\partial e_3}{\partial t}+e_3\chi+\frac{\partial \omega}{\partial s}=0 \quad \text{dengan}\quad \chi=\frac{1}{e_1e_2e_3}\left(\frac{\partial (e_2e_3u)}{\partial i}+\frac{\partial (e_1e_3v)}{\partial j}\right)
+			\frac{\partial e_3}{\partial t}+e_3\chi+\frac{\partial \omega}{\partial s}=0 \quad \text{dengan}\quad \chi=\frac{1}{e_1e_2e_3}\left(\frac{\partial (e_2e_3u)}{\partial i}+\frac{\partial (e_1e_3v)}{\partial j}\right).
 		\end{aligned}
 	\end{equation*}
 	Persamaan pelacak (\textit{tracer equations}) diberikan oleh
@@ -307,7 +305,7 @@
 				\frac{1}{e_3}\frac{\partial (\omega T)}{\partial k}+D^T+F^T  \\
 				\frac{1}{e_3}\frac{\partial (e_3S)}{\partial t} &= -  
 				\frac{1}{e_1e_2e_3}\left(\frac{\partial (e_2e_3uS)}{\partial i} + \frac{\partial (e_1e_3vS)}{\partial j}\right) -
-				\frac{1}{e_3}\frac{\partial (\omega S)}{\partial k}+D^S+F^S%
+				\frac{1}{e_3}\frac{\partial (\omega S)}{\partial k}+D^S+F^S.%
 			\end{aligned}
 			$
 		}
@@ -369,9 +367,9 @@
 		\caption{(a) Profil temperatur laut terbuka yang khas untuk wilayah lintang tengah, menunjukkan lapisan campuran, termoklin yang curam, dan temperatur yang relatif stabil di kedalaman, (b) Profil temperatur representatif untuk daerah tropis, lintang tengah, dan kutub, dan (c) Di daerah beriklim sedang, lapisan campuran lebih dalam dan termoklin kurang menonjol di musim dingin dibandingkan dengan musim panas  \protect\shortcite{webb2021introduction}}
 		\label{fig:mld_theory}
 	\end{figure}
-	 Profil temperatur bervariasi pada garis lintang yang berbeda, karena air permukaan lebih hangat di dekat khatulistiwa dan lebih dingin di kutub. Di daerah tropis lintang rendah, permukaan laut jauh lebih hangat, yang mengarah ke termoklin yang sangat menonjol (lihat gambar \ref{fig:mld_theory}b). Selain itu, tidak banyak perubahan musiman pada temperatur permukaan di daerah tropis, sehingga hanya ada sedikit perubahan musiman di profil temperatur. Di daerah lintang tinggi (kutub), ada sedikit perbedaan antara temperatur permukaan dan temperatur air dalam, dan temperatur cukup konstan di semua  kedalaman. Oleh karena itu, perairan kutub tidak memiliki termoklin yang kuat, dan seperti halnya air tropis, hanya ada sedikit perubahan temperatur musiman. 
+	 Profil temperatur bervariasi pada garis lintang yang berbeda, karena air permukaan lebih hangat di dekat khatulistiwa dan lebih dingin di kutub. Di daerah tropis lintang rendah, permukaan laut jauh lebih hangat, yang mengarah ke termoklin yang sangat menonjol (lihat Gambar \ref{fig:mld_theory}b). Selain itu, tidak banyak perubahan musiman pada temperatur permukaan di daerah tropis, sehingga hanya ada sedikit perubahan musiman di profil temperatur. Di daerah lintang tinggi (kutub), ada sedikit perbedaan antara temperatur permukaan dan temperatur air dalam, dan temperatur cukup konstan di semua  kedalaman. Oleh karena itu, perairan kutub tidak memiliki termoklin yang kuat, dan seperti halnya air tropis, hanya ada sedikit perubahan temperatur musiman. 
 	 
-	 Daerah beriklim sedang (lintang tengah) menunjukkan fluktuasi musiman yang lebih besar pada temperatur permukaan daripada kutub atau daerah tropis; perbedaan $8-15^\circ$C dari musim panas ke musim dingin di zona beriklim sedang, dibandingkan dengan hanya $\sim 2^\circ$C di daerah kutub dan tropis. Di daerah beriklim sedang, air permukaan jauh lebih hangat di musim panas dan termoklin lebih menonjol dibandingkan dengan musim dingin. Tetapi di musim dingin termoklin lebih dalam di garis lintang tengah daripada di musim panas. Ini karena badai musim dingin mengaduk-aduk air permukaan lebih banyak daripada yang terjadi di musim panas, menciptakan termoklin yang lebih dalam dan dengan demikian lebih dalam (lihat gambar \ref{fig:mld_theory}c).
+	 Daerah beriklim sedang (lintang tengah) menunjukkan fluktuasi musiman yang lebih besar pada temperatur permukaan daripada kutub atau daerah tropis; perbedaan $8-15^\circ$C dari musim panas ke musim dingin di zona beriklim sedang, dibandingkan dengan hanya $\sim 2^\circ$C di daerah kutub dan tropis. Di daerah beriklim sedang, air permukaan jauh lebih hangat di musim panas dan termoklin lebih menonjol dibandingkan dengan musim dingin. Tetapi di musim dingin termoklin lebih dalam di garis lintang tengah daripada di musim panas. Ini karena badai musim dingin mengaduk-aduk air permukaan lebih banyak daripada yang terjadi di musim panas, menciptakan termoklin yang lebih dalam dan dengan demikian lebih dalam (lihat Gambar \ref{fig:mld_theory}c).
 \end{spacing}
 \vspace{-0.1pc}
 %\section[Parameter Meteorologi]{Parameter Meteorologi}
